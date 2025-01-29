@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import UserIcon from '@/components/UserIcon';
+import ArchiveIcon from '@/components/ArchiveIcon';
 
 export default function ChatPage() {
     const [message, setMessage] = useState('');
@@ -67,6 +70,17 @@ export default function ChatPage() {
 
     return (
         <div className="chat-page">
+            {/* 네비게이션 바 */}
+            <header className="navbar">
+                <Link href="/user" className="icon-button">
+                    <UserIcon />
+                </Link>
+                <h1 className="title">HAMABI Chat</h1>
+                <Link href="/archive" className="icon-button">
+                    <ArchiveIcon />
+                </Link>
+            </header>
+
             <div className="chat-window" ref={chatWindowRef}>
                 {messages.map((msg, index) => (
                     <div key={index} className={`message ${msg.isUser ? 'user' : 'bot'}`}>
@@ -80,7 +94,7 @@ export default function ChatPage() {
             {/* 스크롤 맨 아래로 이동 버튼 */}
             {showScrollButton && (
                 <button className="scroll-to-bottom" onClick={scrollToBottom}>
-                  <Image src="/arrow-down.svg" alt="Scroll Down" width={24} height={24} />
+                    <Image src="/arrow-down.svg" alt="Scroll Down" width={24} height={24} />
                 </button>
             )}
 

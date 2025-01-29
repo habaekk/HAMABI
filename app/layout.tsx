@@ -33,15 +33,6 @@ export default function Layout({ children }) {
       </head>
       <body>
         <div className="app-container">
-          <header className="navbar">
-            <Link href="/user" className="icon-button">
-              <UserIcon />
-            </Link>
-            <h1 className="title">HAMABI Chat</h1>
-            <Link href="/archive" className="icon-button">
-              <ArchiveIcon />
-            </Link>
-          </header>
           <main>{children}</main>
         </div>
       </body>

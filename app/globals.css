@@ -30,18 +30,17 @@ body {
 
 /* 네비게이션 바 */
 .navbar {
-  height: 60px; /* 네비게이션 바 높이 */
+  height: 60px;
   background-color: #2196F3;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  position: fixed; /* 네비게이션 바 고정 */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10; /* 네비게이션 바가 항상 위에 있도록 */
 }
 
 /* 채팅 화면 */
@@ -206,4 +205,98 @@ body {
 
 .scroll-to-bottom:hover {
   background-color: rgba(25, 118, 210, 0.7); /* hover 시 약간 더 진한 색 */
+}
+
+.user-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  background-color: #222;
+  color: white;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.username-input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.toggle-switch input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.toggle-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.settings-section {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-section label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
