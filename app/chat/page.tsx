@@ -13,9 +13,45 @@ export default function ChatPage() {
         { text: "어떤 이야기를 나누고 싶나요?", isUser: false },
     ]); // 초기 봇 메시지 추가
     const [showScrollButton, setShowScrollButton] = useState(false); // 스크롤 버튼 표시 여부
+    const [title, setTitle] = useState(''); // 헤더 타이틀 (날짜 + 카운트다운)
 
     const chatEndRef = useRef(null);
     const chatWindowRef = useRef(null);
+
+    // 현재 날짜 가져오기 (YYYY:MM:DD)
+    const getCurrentDate = () => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${year}.${month}.${day}`;
+    };
+
+    // 24:00:00까지 남은 시간 계산
+    const calculateRemainingTime = () => {
+        const now = new Date();
+        const midnight = new Date(now);
+        midnight.setHours(24, 0, 0, 0); // 자정(24:00:00) 설정
+
+        const diff = Math.max(0, midnight - now); // 남은 시간 (밀리초)
+        const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0');
+        const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+        const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+
+        return `${hours}:${minutes}:${seconds}`;
+    };
+
+    // 타이틀 업데이트 (1초마다 실행)
+    useEffect(() => {
+        const updateTitle = () => {
+            setTitle(`${getCurrentDate()} - ${calculateRemainingTime()}`);
+        };
+
+        updateTitle(); // 초기 실행
+        const interval = setInterval(updateTitle, 1000); // 1초마다 업데이트
+
+        return () => clearInterval(interval); // 컴포넌트 언마운트 시 인터벌 해제
+    }, []);
 
     // 채팅창을 맨 아래로 스크롤하는 함수
     const scrollToBottom = () => {
@@ -75,7 +111,7 @@ export default function ChatPage() {
                 <Link href="/user" className="icon-button">
                     <UserIcon />
                 </Link>
-                <h1 className="title">HAMABI Chat</h1>
+                <h1 className="title">{title}</h1>
                 <Link href="/archive" className="icon-button">
                     <ArchiveIcon />
                 </Link>

@@ -28,7 +28,7 @@ body {
   height: 100vh; /* 화면의 높이를 100%로 설정 */
 }
 
-/* 네비게이션 바 */
+/* 네비게이션 바 스타일 */
 .navbar {
   height: 60px;
   background-color: #2196F3;
@@ -41,7 +41,22 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
 }
+
+/* 타이틀 스타일 */
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1; /* 가운데 정렬을 위해 flex-grow 사용 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap; /* 줄바꿈 방지 */
+  color: black
+}
+
 
 /* 채팅 화면 */
 .chat-window {
