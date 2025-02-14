@@ -47,6 +47,9 @@
     width: 100%;
     padding: 20px;
     text-align: center;
+    box-sizing: border-box;
+    overflow-y: auto;
+    margin-bottom: 60px; /* 하단 탭 위 공간 확보 */
   }
   
   /* 업적 & 대화기록 스타일 */
@@ -81,7 +84,6 @@
     font-weight: bold;
     border: none;
     background: none;
-    cursor: pointer;
     transition: background 0.3s;
   }
   

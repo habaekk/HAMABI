@@ -2,14 +2,16 @@
 
 import styles from './archive.module.css';
 
-// 업적 예제 데이터
+// 업적 예제 데이터 (총 8개)
 const achievementsData = [
   { id: 1, title: '하마비 첫 만남', description: '하마비를 처음 만난 날!', icon: '🌟' },
   { id: 2, title: '하마비와 10번의 대화', description: '하마비와 10번의 대화를 나눔', icon: '💬' },
   { id: 3, title: '하마비의 비밀 발견', description: '하마비의 숨겨진 메시지를 발견함', icon: '🔍' },
   { id: 4, title: '하루를 끝까지 함께', description: '하루 끝까지 하마비와 함께', icon: '🕰️' },
   { id: 5, title: '하마비의 친구', description: '하마비와 50번의 대화를 나눔', icon: '🤝' },
-  { id: 6, title: '하마비와 100번의 웃음', description: '하마비와 함께 100번 웃음', icon: '😂' }
+  { id: 6, title: '하마비와 100번의 웃음', description: '하마비와 함께 100번 웃음', icon: '😂' },
+  { id: 7, title: '별과의 대화', description: '하마비와 우주 이야기를 나눔', icon: '🌌' },
+  { id: 8, title: '하마비의 선물', description: '하마비로부터 깜짝 메시지를 받음', icon: '🎁' },
 ];
 
 export default function Achievements() {
