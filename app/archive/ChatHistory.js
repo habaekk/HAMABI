@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './archive.module.css';
+import styles from './ArchivePage.module.css';
 
 // 대화 기록 예제 데이터
 const chatHistoryData = [

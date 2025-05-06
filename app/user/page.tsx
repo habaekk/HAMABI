@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from './user.module.css';
+import styles from './UserPage.module.css';
 
 export default function UserPage() {
   const [username, setUsername] = useState('사용자');

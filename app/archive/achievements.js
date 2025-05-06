@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './archive.module.css';
+import styles from './ArchivePage.module.css';
 
 // 업적 예제 데이터 (총 8개)
 const achievementsData = [

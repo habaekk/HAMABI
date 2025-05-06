@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from './archive.module.css';
+import styles from './ArchivePage.module.css';
 import Achievements from './Achievements';
 import ChatHistory from './ChatHistory'; // ✅ 추가
 
