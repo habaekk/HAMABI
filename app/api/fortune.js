@@ -62,12 +62,12 @@ const majorArcana = [
   }
   
   // 한 장 뽑기
-  function drawOneCard() {
+  export function drawOneCard() {
     return drawCards(1)[0];
   }
   
   // 세 장 뽑기
-  function drawThreeCards() {
+  export function drawThreeCards() {
     return drawCards(3);
   }
   

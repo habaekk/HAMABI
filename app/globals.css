@@ -222,6 +222,25 @@ body {
   background-color: rgba(25, 118, 210, 0.7); /* hover 시 약간 더 진한 색 */
 }
 
+.tarot-button {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  padding: 12px 16px;
+  background-color: #fff2c7;
+  color: #222;
+  border: 2px solid #f4c542;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.tarot-button:hover {
+  transform: translateY(-2px);
+}
+
 .user-page {
   display: flex;
   flex-direction: column;

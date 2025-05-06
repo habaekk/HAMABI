@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { drawOneCard } from '../api/fortune';
 import Image from 'next/image';
 import Link from 'next/link';
 import UserIcon from '@/components/UserIcon';
@@ -104,6 +105,13 @@ export default function ChatPage() {
         }
     };
 
+    const handleDrawTarot = () => {
+        const card = drawOneCard();
+        const message = `🔮 당신이 뽑은 카드는 "${card.card}" (${card.orientation})이에요!`;
+        setMessages(prev => [...prev, { text: message, isUser: false }]);
+      };
+      
+
     return (
         <div className="chat-page">
             {/* 네비게이션 바 */}
@@ -133,6 +141,10 @@ export default function ChatPage() {
                     <Image src="/arrow-down.svg" alt="Scroll Down" width={24} height={24} />
                 </button>
             )}
+
+            <button className="tarot-button" onClick={handleDrawTarot}>
+            타로 뽑기
+            </button>
 
             <div className="chat-input-bar">
                 <input
