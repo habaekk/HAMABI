@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './ChatPage.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { drawOneCard } from '../api/fortune';
 import Image from 'next/image';
@@ -108,54 +109,55 @@ export default function ChatPage() {
     const handleDrawTarot = () => {
         // 1단계: 하마비가 메시지 먼저 보여줌
         setMessages(prev => [
-          ...prev,
-          { text: "🧘 마음 속으로 질문을 떠올려보세요...", isUser: false }
+            ...prev,
+            { text: "🧘 마음 속으로 질문을 떠올려보세요...", isUser: false }
         ]);
-      
+
         // 2단계: 0.5초(500ms) 후에 카드 뽑기 결과 보여주기
         setTimeout(() => {
-          const card = drawOneCard();
-          const message = `🔮 당신이 뽑은 카드는 "${card.card}" 이에요!`;
-          setMessages(prev => [...prev, { text: message, isUser: false }]);
+            const card = drawOneCard();
+            const message = `🔮 당신이 뽑은 카드는 "${card.card}" 이에요!`;
+            setMessages(prev => [...prev, { text: message, isUser: false }]);
         }, 1000);
-      };
-      
+    };
+
 
     return (
-        <div className="chat-page">
+        <div className={styles.chatPage}>
             {/* 네비게이션 바 */}
-            <header className="navbar">
-                <Link href="/user" className="icon-button">
+            <header className={styles.navbar}>
+                <Link href="/user" className={styles.iconButton}>
                     <UserIcon />
                 </Link>
-                <h1 className="title">{title}</h1>
-                <Link href="/archive" className="icon-button">
+                <h1 className={styles.title}>{title}</h1>
+                <Link href="/archive" className={styles.iconButton}>
                     <ArchiveIcon />
                 </Link>
             </header>
 
-            <div className="chat-window" ref={chatWindowRef}>
+            <div className={styles.chatWindow} ref={chatWindowRef}>
                 {messages.map((msg, index) => (
-                    <div key={index} className={`message ${msg.isUser ? 'user' : 'bot'}`}>
+                    <div
+                        key={index}
+                        className={`${styles.message} ${msg.isUser ? styles.user : styles.bot}`}
+                    >
                         {msg.text}
                     </div>
                 ))}
-                {/* 스크롤을 위한 더미 요소 */}
                 <div ref={chatEndRef}></div>
             </div>
 
-            {/* 스크롤 맨 아래로 이동 버튼 */}
             {showScrollButton && (
-                <button className="scroll-to-bottom" onClick={scrollToBottom}>
+                <button className={styles.scrollToBottom} onClick={scrollToBottom}>
                     <Image src="/arrow-down.svg" alt="Scroll Down" width={24} height={24} />
                 </button>
             )}
 
-            <button className="tarot-button" onClick={handleDrawTarot}>
-            타로 뽑기
+            <button className={styles.tarotButton} onClick={handleDrawTarot}>
+                타로 뽑기
             </button>
 
-            <div className="chat-input-bar">
+            <div className={styles.chatInputBar}>
                 <input
                     type="text"
                     value={message}
@@ -166,5 +168,6 @@ export default function ChatPage() {
                 <button onClick={handleSendMessage}>Send</button>
             </div>
         </div>
+
     );
 }
