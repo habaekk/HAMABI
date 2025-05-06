@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import UserIcon from '@/components/UserIcon';
 import ArchiveIcon from '@/components/ArchiveIcon';
+import { processUserMessage } from '../LLM/LLMService';
 
 export default function ChatPage() {
     const [message, setMessage] = useState('');
@@ -84,19 +85,38 @@ export default function ChatPage() {
     }, []);
 
     // 메시지 전송 함수
-    const handleSendMessage = () => {
+    const handleSendMessage = async () => {
         if (message.trim()) {
-            setMessages([...messages, { text: message, isUser: true }]);
-            setMessage('');
-
-            setTimeout(() => {
-                setMessages(prevMessages => [
-                    ...prevMessages,
-                    { text: "좋은 질문이에요! 좀 더 자세히 설명해 주세요. 🤔", isUser: false }
-                ]);
-            }, 1000);
+          const userMessage = { text: message, isUser: true };
+          const updatedMessages = [...messages, userMessage];
+      
+          // 1. 유저 메시지 먼저 추가
+          setMessages(updatedMessages);
+          setMessage('');
+      
+          try {
+            // 2. LLM에게 응답 요청
+            const response = await processUserMessage(
+              updatedMessages.map(msg => ({
+                role: msg.isUser ? 'user' : 'assistant',
+                content: msg.text
+              }))
+            );
+      
+            // 3. 받은 응답 메시지를 상태에 추가
+            setMessages(prev => [
+              ...prev,
+              { text: response.content, isUser: false }
+            ]);
+          } catch (err) {
+            console.error('Chat error:', err);
+            setMessages(prev => [
+              ...prev,
+              { text: '😢 하마미가 조금 멍해졌어요. 다시 말해볼까요?', isUser: false }
+            ]);
+          }
         }
-    };
+    }
 
     // 엔터 키 입력 시 메시지 전송
     const handleKeyDown = (event) => {

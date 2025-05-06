@@ -46,5 +46,5 @@ const chat = async (messages, _model, _prompt) => {
     }
   }
 
-  return { role: 'assistant', content: parsedResponse.content };
+  return { role: 'assistant', content: content };
 };
