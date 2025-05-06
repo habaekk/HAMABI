@@ -106,9 +106,18 @@ export default function ChatPage() {
     };
 
     const handleDrawTarot = () => {
-        const card = drawOneCard();
-        const message = `🔮 당신이 뽑은 카드는 "${card.card}" (${card.orientation})이에요!`;
-        setMessages(prev => [...prev, { text: message, isUser: false }]);
+        // 1단계: 하마비가 메시지 먼저 보여줌
+        setMessages(prev => [
+          ...prev,
+          { text: "🧘 마음 속으로 질문을 떠올려보세요...", isUser: false }
+        ]);
+      
+        // 2단계: 0.5초(500ms) 후에 카드 뽑기 결과 보여주기
+        setTimeout(() => {
+          const card = drawOneCard();
+          const message = `🔮 당신이 뽑은 카드는 "${card.card}" 이에요!`;
+          setMessages(prev => [...prev, { text: message, isUser: false }]);
+        }, 1000);
       };
       
 
