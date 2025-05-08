@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import UserIcon from '@/components/UserIcon';
 import ArchiveIcon from '@/components/ArchiveIcon';
-import { processUserMessage } from '../LLM/LLMService';
+import { processUserMessage, summarizeChat } from '../LLM/LLMService';
 
 export default function ChatPage() {
     const [message, setMessage] = useState('');

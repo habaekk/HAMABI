@@ -27,6 +27,11 @@ const mainPrompt = `
     }
 `;
 
+const summaryPrompt =`
+{
+    Read the following conversation and summarize it into one short sentence that feels like a diary title or memory caption. Keep it emotional or poetic if possible.
+}
+`
 
 // jailBreakPrompt
 const jailBreakPrompt = `
@@ -35,4 +40,6 @@ const jailBreakPrompt = `
 `;
 
 
-export const H_prompt = mainPrompt + "User: "
+export const H_prompt = mainPrompt + "User: " // Hamabi prompt
+export const S_prompt = summaryPrompt + "Messages: " // Summarizing prompt
+

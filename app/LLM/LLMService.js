@@ -1,10 +1,15 @@
-import { H_prompt } from './prompts';
+import { H_prompt, S_prompt } from './prompts';
 
 // Message 타입 정의를 JS에서는 생략. 대신 구조만 유지
 export const processUserMessage = async (messages) => {
 
     return await chat(messages, 'Ccat', H_prompt);
 };
+
+export const summarizeChat = async (messages) => {
+
+    return await chat(messages, 'Ccat', S_prompt);
+}
 
 const chat = async (messages, _model, _prompt) => {
   const prompt = [
