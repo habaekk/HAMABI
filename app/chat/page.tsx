@@ -138,7 +138,7 @@ const handleSendMessage = async () => {
             handleSendMessage();
         }
     };
-
+    // 지금은 요약 버튼임
     const handleDrawTarot = () => {
         // 1단계: 하마비가 메시지 먼저 보여줌
         setMessages(prev => [
@@ -187,7 +187,7 @@ const handleSendMessage = async () => {
             )}
 
             <button className={styles.tarotButton} onClick={handleDrawTarot}>
-                타로 뽑기
+                요약
             </button>
 
             <div className={styles.chatInputBar}>
