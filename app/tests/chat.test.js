@@ -1,5 +1,5 @@
 // chat.test.js
-import { processUserMessage, summarizeChat } from '../api/chat';
+import { processUserMessage, summarizeChat } from '../LLM/LLMService';
 
 describe('Chat API Functions', () => {
   // Mocking the fetch API
@@ -26,6 +26,8 @@ describe('Chat API Functions', () => {
 
     const response = await processUserMessage(messages);
 
+    console.log('Returned Response:', response);  // 추가 부분
+
     expect(fetch).toHaveBeenCalledWith(
       'http://localhost:11434/api/chat',
       expect.objectContaining({
@@ -46,6 +48,8 @@ describe('Chat API Functions', () => {
     ];
 
     const response = await summarizeChat(messages);
+
+    console.log('Returned Summary:', response);  // 추가 부분
 
     expect(fetch).toHaveBeenCalledWith(
       'http://localhost:11434/api/chat',

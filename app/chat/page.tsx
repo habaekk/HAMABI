@@ -5,8 +5,8 @@ import { useState, useEffect, useRef } from 'react';
 import { drawOneCard } from '../api/fortune';
 import Image from 'next/image';
 import Link from 'next/link';
-import UserIcon from '@/components/UserIcon';
-import ArchiveIcon from '@/components/ArchiveIcon';
+import UserIcon from '../../components/UserIcon';
+import ArchiveIcon from '../../components/ArchiveIcon';
 import { processUserMessage, summarizeChat } from '../LLM/LLMService';
 
 export default function ChatPage() {
@@ -85,38 +85,51 @@ export default function ChatPage() {
     }, []);
 
     // 메시지 전송 함수
-    const handleSendMessage = async () => {
-        if (message.trim()) {
-          const userMessage = { text: message, isUser: true };
-          const updatedMessages = [...messages, userMessage];
-      
-          // 1. 유저 메시지 먼저 추가
-          setMessages(updatedMessages);
-          setMessage('');
-      
-          try {
-            // 2. LLM에게 응답 요청
-            const response = await processUserMessage(
-              updatedMessages.map(msg => ({
+    // 메시지 전송 함수
+const handleSendMessage = async () => {
+    if (message.trim()) {
+        const userMessage = { text: message, isUser: true };
+        const updatedMessages = [...messages, userMessage];
+
+        // ✅ 1. 유저 메시지 추가 직후 로그
+        console.log('Updated Messages (User Added):', updatedMessages);
+
+        // 1. 유저 메시지 먼저 추가
+        setMessages(updatedMessages);
+        setMessage('');
+
+        try {
+            // ✅ 2. LLM 요청 전 로그
+            const requestPayload = updatedMessages.map(msg => ({
                 role: msg.isUser ? 'user' : 'assistant',
                 content: msg.text
-              }))
-            );
-      
+            }));
+            console.log('Request Payload to LLM:', requestPayload);
+
+            // 2. LLM에게 응답 요청
+            const response = await processUserMessage(requestPayload);
+
+            // ✅ 3. LLM 응답 받은 후 로그
+            console.log('LLM Response:', response);
+
             // 3. 받은 응답 메시지를 상태에 추가
+            const botMessage = { text: response.content, isUser: false };
+            setMessages(prev => [...prev, botMessage]);
+
+            // ✅ 4. 최종 상태 확인
+            console.log('Final Messages after Response:', [...updatedMessages, botMessage]);
+
+        } catch (err) {
+            // ✅ 5. 오류 발생 시 로그
+            console.error('Error during message processing:', err);
             setMessages(prev => [
-              ...prev,
-              { text: response.content, isUser: false }
+                ...prev,
+                { text: '😢 하마미가 잠깐 멍했어요. 다시 말해줄래요?', isUser: false }
             ]);
-          } catch (err) {
-            console.error('Chat error:', err);
-            setMessages(prev => [
-              ...prev,
-              { text: '😢 하마미가 조금 멍해졌어요. 다시 말해볼까요?', isUser: false }
-            ]);
-          }
         }
     }
+};
+
 
     // 엔터 키 입력 시 메시지 전송
     const handleKeyDown = (event) => {
