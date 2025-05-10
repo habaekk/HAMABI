@@ -30,6 +30,15 @@ export const summarizeChat = async (messages) => {
   return await chat(_messages, 'Ccat');
 }
 
+const messagesToString = (messages) => {
+  return messages
+    .map(message => {
+      const role = message.role.charAt(0).toUpperCase() + message.role.slice(1);
+      return `${role}: ${message.content}\n`;
+    })
+    .join('');
+};
+
 const chat = async (messages, _model) => {
   
   console.log("inside LLM input", messages);
