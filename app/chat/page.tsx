@@ -36,7 +36,7 @@ export default function ChatPage() {
         const midnight = new Date(now);
         midnight.setHours(24, 0, 0, 0); // 자정(24:00:00) 설정
 
-        const diff = Math.max(0, midnight - now); // 남은 시간 (밀리초)
+        const diff = Math.max(0, midnight.getTime() - now.getTime()); // 남은 시간 (밀리초)
         const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0');
         const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
         const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
