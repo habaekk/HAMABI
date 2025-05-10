@@ -12,8 +12,8 @@ import { processUserMessage, summarizeChat } from '../LLM/LLMService';
 export default function ChatPage() {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([
-        { text: "안녕하세요! 저는 하마비예요. 😊", isUser: false },
-        { text: "어떤 이야기를 나누고 싶나요?", isUser: false },
+        { text: "Hello I'm Hamabi. 😊", isUser: false },
+        { text: "Which conversation do you want to share with me?", isUser: false },
     ]); // 초기 봇 메시지 추가
     const [showScrollButton, setShowScrollButton] = useState(false); // 스크롤 버튼 표시 여부
     const [title, setTitle] = useState(''); // 헤더 타이틀 (날짜 + 카운트다운)
@@ -139,19 +139,51 @@ const handleSendMessage = async () => {
         }
     };
     // 지금은 요약 버튼임
-    const handleDrawTarot = () => {
-        // 1단계: 하마비가 메시지 먼저 보여줌
-        setMessages(prev => [
-            ...prev,
-            { text: "🧘 마음 속으로 질문을 떠올려보세요...", isUser: false }
-        ]);
+    const handleDrawTarot = async () => {
+        // // // 1단계: 하마비가 메시지 먼저 보여줌
+        // // setMessages(prev => [
+        // //     ...prev,
+        // //     { text: "🧘 마음 속으로 질문을 떠올려보세요...", isUser: false }
+        // // ]);
 
-        // 2단계: 0.5초(500ms) 후에 카드 뽑기 결과 보여주기
-        setTimeout(() => {
-            const card = drawOneCard();
-            const message = `🔮 당신이 뽑은 카드는 "${card.card}" 이에요!`;
-            setMessages(prev => [...prev, { text: message, isUser: false }]);
-        }, 1000);
+        // // 2단계: 0.5초(500ms) 후에 카드 뽑기 결과 보여주기
+        // setTimeout(() => {
+        //     // const card = drawOneCard();
+        //     const message = `🔮 당신이 뽑은 카드는 "${card.card}" 이에요!`;
+        //     setMessages(prev => [...prev, { text: message, isUser: false }]);
+        // }, 1000);
+
+
+
+        try {
+            // ✅ 2. LLM 요청 전 로그
+            const requestPayload = messages.map(msg => ({
+                role: msg.isUser ? 'user' : 'assistant',
+                content: msg.text
+            }));
+            console.log('Request Payload to LLM:', requestPayload);
+
+            // 2. LLM에게 응답 요청
+            const response = await summarizeChat(requestPayload);
+
+            // ✅ 3. LLM 응답 받은 후 로그
+            console.log('LLM Response:', response);
+
+            // 3. 받은 응답 메시지를 상태에 추가
+            const botMessage = { text: response.content, isUser: false };
+            setMessages(prev => [...prev, botMessage]);
+
+            // ✅ 4. 최종 상태 확인
+            console.log('Final Messages after Response:', [...messages, botMessage]);
+
+        } catch (err) {
+            // ✅ 5. 오류 발생 시 로그
+            console.error('Error during message processing:', err);
+            setMessages(prev => [
+                ...prev,
+                { text: '😢 하마미가 잠깐 멍했어요. 다시 말해줄래요?', isUser: false }
+            ]);
+        }
     };
 
 
