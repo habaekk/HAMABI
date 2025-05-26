@@ -11,9 +11,11 @@ export const processUserMessage = async (messages) => {
     }
   ];
 
-  const _messages = [...prompt, ...messages];
+  const messagesWithPrompt = [...prompt, ...messages];
 
-  return await chat(_messages, 'Ccat');
+  const stringMessages = messagesToString(messagesWithPrompt); 
+
+  return await chat(messagesWithPrompt, 'Ccat');
 };
 
 export const summarizeChat = async (messages) => {
@@ -25,9 +27,11 @@ export const summarizeChat = async (messages) => {
     }
   ];
 
-  const _messages = [...messages, ...prompt];
+  const messagesWithPrompt = [...messages, ...prompt];
 
-  return await chat(_messages, 'Ccat');
+  const stringMessages = messagesToString(messagesWithPrompt); 
+
+  return await chat(messagesWithPrompt, 'Ccat');
 }
 
 const messagesToString = (messages) => {
