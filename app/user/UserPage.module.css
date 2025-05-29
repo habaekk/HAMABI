@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 4rem;
   max-width: flex;
   margin: auto;
   background-color: #f5f5f7; /* 밝은 배경 */
@@ -17,28 +17,28 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 4rem;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
   border-bottom: 1px solid #ddd;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: bold;
   color: black; /* ✅ 네비게이션 바 글씨 색상 */
 }
 
 /* 뒤로 가기 버튼 */
 .backButton {
-  font-size: 20px;
+  font-size: 1.2rem;
   text-decoration: none;
   color: #007AFF;
 }
 
 .iconPlaceholder {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* 프로필 섹션 스타일 */
@@ -47,18 +47,18 @@
   align-items: center;
   background-color: white;
   width: 100%;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 /* 원형 프로필 이미지 */
 .profileImg {
-  width: 60px;
-  height: 60px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%; /* 원형으로 만들기 */
   object-fit: cover; /* 이미지가 비율을 유지하면서 꽉 차게 */
-  margin-right: 15px; /* 오른쪽 여백 */
+  margin-right: 1rem; /* 오른쪽 여백 */
 }
 
 /* 프로필 텍스트 컨테이너 (닉네임, 계정 이름) */
@@ -66,18 +66,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px; /* 닉네임과 계정 이름 간격 */
+  gap: 0.3rem; /* 닉네임과 계정 이름 간격 */
 }
 
 /* 계정 이름 스타일 */
 .accountName {
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #666; /* 회색 */
 }
 
 /* 닉네임 스타일 */
 .nickname {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: bold;
   color: black;
 }
@@ -87,7 +87,7 @@
 .settingsList {
   width: 100%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 0.8rem;
   overflow: hidden;
   color: black;
 }
@@ -97,9 +97,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 1rem;
   border-bottom: 1px solid #ddd;
-  font-size: 16px;
+  font-size: 1rem;
   color: black;
 }
 
@@ -109,10 +109,10 @@
 
 /* 초기화 기준 시각 입력 필드 */
 .timeInput {
-  font-size: 16px;
-  padding: 5px;
+  font-size: 1rem;
+  padding: 0.2rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0.3rem;
   background-color: white;
   color: black;
 }
@@ -121,8 +121,8 @@
 /* iOS 스타일 토글 스위치 */
 .toggleSwitch {
   position: relative;
-  width: 40px;
-  height: 24px;
+  width: 2.5rem;
+  height: 1.5rem;
 }
 
 .toggleSwitch input {
@@ -140,7 +140,7 @@
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 24px;
+  border-radius: 1.5rem;
 }
 
 .toggleSwitch input:checked + .slider {
@@ -150,15 +150,15 @@
 .toggleSwitch .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
+  height: 1.1rem;
+  width: 1.1rem;
+  left: 0.2rem;
+  bottom: 0.2rem;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
 }
 
 .toggleSwitch input:checked + .slider:before {
-  transform: translateX(16px);
+  transform: translateX(1rem);
 }
