@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Git 컨벤션 가이드
 
-## Getting Started
+깃 브랜치 구조, PR 작성 규칙, 커밋 메시지 규칙을 정리한 문서입니다.  
 
-First, run the development server:
+## 📂 브랜치 구조
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```plaintext
+main                ← 실제 운영 중인 배포용 브랜치
+└─ dev              ← 개발 통합 브랜치
+    └─ feat/기능명
+    └─ fix/버그명
+    └─ refactor/리팩토링명
+    └─ docs/문서작업
+
+-주요 브랜치-
+
+feat/	    새로운 기능 개발
+fix/	    버그 수정
+refactor/	코드 리팩토링
+docs/	    문서 작업 (README 등)
+chore/	    설정, 패키지 등 기타 작업
+test/	    테스트 코드 관련 작업
+style/	    코드 스타일 수정 (포맷팅 등)
+ci/	    CI/CD 관련 작업
+hotfix/	    긴급 수정 작업
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔐 브랜치 머지 조건
+- Github Actions CI 통과 필수
+- test 코드 작성 필수
+- lint 통과
+- 최소 1인의 리뷰 승인 후 merge
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✅ Pull Request(PR) 컨벤션
+### PR 제목 예시
+```
+[type](scope): <Title>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+-예-
 
-To learn more about Next.js, take a look at the following resources:
+feat(chat): 메시지 전송 기능 구현
+fix(button): 클릭 이벤트 오류 수정
+```
+### PR 본문 예시
+```
+## ✨ 작업 개요
+- 어떤 기능을 개발했는지 요약합니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📌 작업 상세
+- 작업한 세부 사항을 설명합니다.
+- 구조 변경, 사용한 기술 등도 적어주세요.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧪 테스트 방법
+- 어떻게 테스트했는지 간단히 적습니다.
+- 테스트 시나리오, 예상 결과 등
 
-## Deploy on Vercel
+## 🔗 관련 이슈
+- Close #이슈번호
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⚠️ 특이사항
+- 리뷰어가 알아야 할 내용이 있다면 적어주세요.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💬 커밋 메시지 컨벤션
+```plaintext
+<type>(scope): <subject>
+
+
+-주요 타입(type)-
+
+feat	    새로운 기능 추가
+fix	        버그 수정
+docs	    문서 작업
+style	    포맷 변경, 세미콜론, 띄어쓰기 등
+refactor	리팩토링 (동작 변화 없이 구조 개선)
+test    	테스트 코드 추가/수정
+chore	    설정 파일, 빌드 작업 등
+ci	CI/CD   설정 변경
+
+
+-예시-
+
+feat(chat): 채팅 입력창 구현
+fix(login): 로그인 실패 시 메시지 표시 오류 수정
+docs(readme): 프로젝트 실행 방법 추가
+refactor(button): 버튼 컴포넌트 리팩토링
+test(form): 로그인 폼 유효성 테스트 추가
+```
