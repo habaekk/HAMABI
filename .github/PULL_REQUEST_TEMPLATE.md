@@ -5,7 +5,7 @@ Briefly describe what this PR does.
 
 ## ✅ Type of Change
 Check all that apply:
-
+- [ ] Release: Merge dev into main
 - [ ] feat: Add new feature
 - [ ] fix: Bug fix
 - [ ] refactor: Refactor code (no functional changes)
