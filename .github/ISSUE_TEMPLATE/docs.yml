@@ -1,7 +1,4 @@
-name: 📝 Documentation Improvement
-description: Suggest improvements to documentation or the README.
 title: "[DOCS] "
-labels: ["documentation"]
 body:
   - type: textarea
     id: what

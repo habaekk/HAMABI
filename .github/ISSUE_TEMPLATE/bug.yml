@@ -1,7 +1,4 @@
-name: 🐛 Bug Report
-description: Please report any bugs you've encountered.
 title: "[BUG] "
-labels: ["bug"]
 body:
   - type: input
     id: os
