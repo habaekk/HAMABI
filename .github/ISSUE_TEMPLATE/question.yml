@@ -1,13 +1,13 @@
-name: ❓ 질문/문의
-description: 궁금한 점이 있으면 남겨주세요.
+name: ❓ Question
+description: Ask a question or request clarification.
 title: "[QUESTION] "
 labels: ["question"]
 body:
   - type: textarea
     id: question
     attributes:
-      label: 질문 내용
-      description: 어떤 게 궁금한가요?
-      placeholder: 여기에 질문을 작성해주세요.
+      label: Question
+      description: What would you like to ask?
+      placeholder: Please write your question here.
     validations:
       required: true

@@ -1,21 +1,21 @@
-name: ✨ 기능 제안
-description: 필요한 기능이나 개선사항을 제안해주세요.
+name: ✨ Feature Request
+description: Suggest a new feature or improvement.
 title: "[FEATURE] "
 labels: ["enhancement"]
 body:
   - type: textarea
     id: what
     attributes:
-      label: 어떤 기능인가요?
-      description: 원하는 기능을 설명해주세요.
-      placeholder: 예) 채팅창에 메시지 삭제 기능 추가
+      label: What is the feature?
+      description: Describe the feature you would like to see.
+      placeholder: e.g. Add a message delete option in the chat window
     validations:
       required: true
 
   - type: textarea
     id: why
     attributes:
-      label: 왜 필요하나요?
-      description: 이 기능이 왜 필요한지 또는 어떤 문제를 해결할 수 있는지 설명해주세요.
+      label: Why is it needed?
+      description: Explain why this feature is necessary or what problem it solves.
     validations:
       required: false

@@ -1,21 +1,21 @@
-name: 📝 문서 개선
-description: 문서나 README에 대한 개선 사항을 제안해주세요.
+name: 📝 Documentation Improvement
+description: Suggest improvements to documentation or the README.
 title: "[DOCS] "
 labels: ["documentation"]
 body:
   - type: textarea
     id: what
     attributes:
-      label: 개선할 문서
-      description: 어떤 문서(파일 또는 섹션)를 개선하고 싶은가요?
-      placeholder: 예) README 설치 방법 설명이 부족함
+      label: Document to Improve
+      description: Which document (file or section) would you like to improve?
+      placeholder: e.g. The README lacks installation instructions.
     validations:
       required: true
 
   - type: textarea
     id: suggestion
     attributes:
-      label: 개선 제안
-      description: 어떻게 바꾸면 좋을지 적어주세요.
+      label: Suggested Changes
+      description: How do you suggest improving it?
     validations:
       required: true
