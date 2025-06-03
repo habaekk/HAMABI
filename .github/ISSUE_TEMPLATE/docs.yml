@@ -1,0 +1,18 @@
+title: "[DOCS] "
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Document to Improve
+      description: Which document (file or section) would you like to improve?
+      placeholder: e.g. The README lacks installation instructions.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Changes
+      description: How do you suggest improving it?
+    validations:
+      required: true

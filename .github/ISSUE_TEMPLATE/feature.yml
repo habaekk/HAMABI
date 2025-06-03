@@ -1,0 +1,18 @@
+title: "[FEATURE] "
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What is the feature?
+      description: Describe the feature you would like to see.
+      placeholder: e.g. Add a message delete option in the chat window
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it needed?
+      description: Explain why this feature is necessary or what problem it solves.
+    validations:
+      required: false
