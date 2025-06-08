@@ -13,6 +13,8 @@ export const processUserMessage = async (messages) => {
 
   const messagesWithPrompt = [...prompt, ...messages];
 
+  const stringMessages = messagesToString(messagesWithPrompt); 
+
   return await chat(messagesWithPrompt, 'Ccat');
 };
 
@@ -27,8 +29,19 @@ export const summarizeChat = async (messages) => {
 
   const messagesWithPrompt = [...messages, ...prompt];
 
+  const stringMessages = messagesToString(messagesWithPrompt); 
+
   return await chat(messagesWithPrompt, 'Ccat');
 }
+
+const messagesToString = (messages) => {
+  return messages
+    .map(message => {
+      const role = message.role.charAt(0).toUpperCase() + message.role.slice(1);
+      return `${role}: ${message.content}\n`;
+    })
+    .join('');
+};
 
 const chat = async (messages, _model) => {
   
@@ -55,7 +68,7 @@ const chat = async (messages, _model) => {
   }
 
   let content = '';
-  // let chunkCount = 0;  // 몇 번째 청크인지 세기 위한 변수
+  let chunkCount = 0;  // 몇 번째 청크인지 세기 위한 변수
   
   while (true) {
     try {
@@ -82,7 +95,7 @@ const chat = async (messages, _model) => {
       try {
         json = JSON.parse(rawjson);
       } catch (parseError) {
-        console.error('❌ JSON Parsing Error:', parseError);
+        // console.error('❌ JSON Parsing Error:', parseError);
         continue;  // JSON 변환 실패 시 다음 청크로 넘어감
       }
   
@@ -96,9 +109,9 @@ const chat = async (messages, _model) => {
         // console.log(`💬 Accumulated content after chunk #${chunkCount + 1}:`, content);
       }
   
-      // chunkCount++;  // 청크 카운트 증가
+      chunkCount++;  // 청크 카운트 증가
     } catch (error) {
-      console.error('❗ Error while reading chunk:', error);
+      // console.error('❗ Error while reading chunk:', error);
       break;  // 예외 발생 시 반복문 종료
     }
   }
