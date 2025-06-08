@@ -2,7 +2,7 @@
 
 import styles from './Achievements.module.css';
 
-// 업적 예제 데이터 (총 8개)
+// 업적 예제 데이터
 const achievementsData = [
   { id: 1, title: '하마비 첫 만남', description: '하마비를 처음 만난 날!', icon: '🌟' },
   { id: 2, title: '하마비와 10번의 대화', description: '하마비와 10번의 대화를 나눔', icon: '💬' },
