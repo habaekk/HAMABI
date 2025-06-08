@@ -5,6 +5,7 @@ import Link from 'next/link';
 import styles from './UserPage.module.css';
 
 export default function UserPage() {
+  const [username, setUsername] = useState('사용자');
   const [chatBubbleStyle, setChatBubbleStyle] = useState('rounded');
   const [notifications, setNotifications] = useState(true);
   const [resetTime, setResetTime] = useState('00:00');
@@ -23,7 +24,7 @@ export default function UserPage() {
       <div className={styles.profileSection}>
         <img src="/default-avatar.png" alt="프로필 이미지" className={styles.profileImg} />
         <div className={styles.profileText}>
-          <span className={styles.nickname}>User</span>
+          <span className={styles.nickname}>{username}</span>
           <span className={styles.accountName}>user@example.com</span>
         </div>
       </div>
