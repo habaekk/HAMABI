@@ -2,6 +2,7 @@
 
 import styles from './ChatPage.module.css';
 import { useState, useEffect, useRef } from 'react';
+import { drawOneCard } from '../api/fortune';
 import Image from 'next/image';
 import Link from 'next/link';
 import UserIcon from '../../components/UserIcon';

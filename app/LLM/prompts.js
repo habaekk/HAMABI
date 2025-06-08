@@ -34,10 +34,10 @@ const summaryPrompt =`
 `
 
 // jailBreakPrompt
-// const jailBreakPrompt = `
-//   {
-//   }
-// `;
+const jailBreakPrompt = `
+  {
+  }
+`;
 
 
 export const H_prompt = mainPrompt + "User: " // Hamabi prompt
