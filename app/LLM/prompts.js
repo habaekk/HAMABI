@@ -33,12 +33,6 @@ const summaryPrompt =`
 }
 `
 
-// jailBreakPrompt
-const jailBreakPrompt = `
-  {
-  }
-`;
-
 
 export const H_prompt = mainPrompt + "User: " // Hamabi prompt
 export const S_prompt = summaryPrompt // Summarizing prompt
