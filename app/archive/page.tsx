@@ -21,7 +21,7 @@ export default function ArchivePage() {
             {/* 탭 내용 */}
             <div className={styles.tabContent}>
                 {activeTab === 'chatHistory' ? (
-                    <ChatHistory /> // ✅ 대화기록 컴포넌트
+                    <ChatHistory />
                 ) : (
                     <Achievements />
                 )}
