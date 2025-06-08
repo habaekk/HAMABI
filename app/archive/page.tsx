@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './ArchivePage.module.css';
-import Achievements from './Achievements';
-import ChatHistory from './ChatHistory'; // ✅ 추가
+import Achievements from './Achievements.js';
+import ChatHistory from './ChatHistory.js';
 
 export default function ArchivePage() {
     const [activeTab, setActiveTab] = useState('chatHistory'); // 기본 탭: 대화기록
@@ -21,7 +21,7 @@ export default function ArchivePage() {
             {/* 탭 내용 */}
             <div className={styles.tabContent}>
                 {activeTab === 'chatHistory' ? (
-                    <ChatHistory /> // ✅ 대화기록 컴포넌트
+                    <ChatHistory />
                 ) : (
                     <Achievements />
                 )}
