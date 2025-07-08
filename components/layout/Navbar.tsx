@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MobileNavbar.module.css';
+import styles from './Navbar.module.css';
 
 type MobileNavbarProps = {
   title: string;

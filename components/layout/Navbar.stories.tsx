@@ -1,4 +1,4 @@
-// components/MobileNavbar.stories.tsx
+// components/Navbar.stories.tsx
 import type { Meta, StoryObj } from '@storybook/react';
 import { Navbar } from './Navbar';
 
