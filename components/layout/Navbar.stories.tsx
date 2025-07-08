@@ -1,6 +1,9 @@
 // components/Navbar.stories.tsx
 import type { Meta, StoryObj } from '@storybook/react';
 import { Navbar } from './Navbar';
+import ArchiveIcon from '../ArchiveIcon'
+import UserIcon from '../UserIcon'
+
 
 const meta: Meta<typeof Navbar> = {
   title: 'components/layout/Navbar',
@@ -30,10 +33,10 @@ export const WithPlaceholders: Story = {
   },
 };
 
-// export const WithIcons: Story = {
-//   args: {
-//     title: '마이페이지',
-//     left: <img src="/icons/back.svg" alt="뒤로가기" width={16} height={16} />,
-//     right: <img src="/icons/more.svg" alt="더보기" width={16} height={16} />,
-//   },
-// };
+export const WithIcons: Story = {
+  args: {
+    title: 'Chat',
+    left: <ArchiveIcon />,
+    right: <UserIcon />,
+  },
+};
