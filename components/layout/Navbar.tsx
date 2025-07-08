@@ -7,7 +7,7 @@ type MobileNavbarProps = {
   right?: React.ReactNode;
 };
 
-export const MobileNavbar = ({ title, left, right }: MobileNavbarProps) => {
+export const Navbar = ({ title, left, right }: MobileNavbarProps) => {
   return (
     <header className={styles.navbar}>
       <div className={styles.navIcon}>
