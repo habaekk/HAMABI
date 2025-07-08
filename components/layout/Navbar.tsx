@@ -1,14 +1,14 @@
 // components/MobileNavbar.tsx
 import React from 'react';
-import './MobileNavbar.css';
+import './Navbar.css';
 
-type MobileNavbarProps = {
+type NavbarProps = {
   title: string;
   left?: React.ReactNode;
   right?: React.ReactNode;
 };
 
-export const MobileNavbar = ({ title, left, right }: MobileNavbarProps) => {
+export const Navbar = ({ title, left, right }: NavbarProps) => {
   return (
     <header className="mobile-navbar">
       <div className="nav-icon">{left ?? <div className="icon-placeholder" />}</div>
