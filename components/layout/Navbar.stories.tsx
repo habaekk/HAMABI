@@ -1,10 +1,10 @@
 // components/MobileNavbar.stories.tsx
 import type { Meta, StoryObj } from '@storybook/react';
-import { MobileNavbar } from './Navbar';
+import { Navbar } from './Navbar';
 
-const meta: Meta<typeof MobileNavbar> = {
-  title: 'Components/MobileNavbar',
-  component: MobileNavbar,
+const meta: Meta<typeof Navbar> = {
+  title: 'components/layout/Navbar',
+  component: Navbar,
   tags: ['autodocs'], // Docs 탭 자동 생성
   argTypes: {
     title: { control: 'text' },
@@ -14,17 +14,17 @@ const meta: Meta<typeof MobileNavbar> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof MobileNavbar>;
+type Story = StoryObj<typeof Navbar>;
 
 export const Default: Story = {
   args: {
-    title: '홈',
+    title: 'Home',
   },
 };
 
 export const WithPlaceholders: Story = {
   args: {
-    title: '설정',
+    title: 'Settings',
     left: <div style={{ width: 16, height: 16, backgroundColor: 'gray' }} />,
     right: <div style={{ width: 16, height: 16, backgroundColor: 'gray' }} />,
   },
