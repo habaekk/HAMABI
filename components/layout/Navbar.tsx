@@ -10,7 +10,7 @@ type NavbarProps = {
 
 export const Navbar = ({ title, left, right }: NavbarProps) => {
   return (
-    <header className="mobile-navbar">
+    <header className="navbar">
       <div className="nav-icon">{left ?? <div className="icon-placeholder" />}</div>
       <div className="nav-title">{title}</div>
       <div className="nav-icon">{right ?? <div className="icon-placeholder" />}</div>
