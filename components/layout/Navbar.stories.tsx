@@ -55,3 +55,10 @@ export const User: Story = {
     left: <BackArrowIcon />,
   },
 };
+
+export const Archive: Story = {
+  args: {
+    title: 'Archive',
+    left: <BackArrowIcon />,
+  },
+};
