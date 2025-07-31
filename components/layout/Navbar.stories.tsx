@@ -62,3 +62,10 @@ export const Archive: Story = {
     left: <BackArrowIcon />,
   },
 };
+
+export const ChatHistoryDetail: Story = {
+  args: {
+    title: '2025-02-15',
+    left: <BackArrowIcon />,
+  },
+};
