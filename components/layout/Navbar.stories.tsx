@@ -1,9 +1,9 @@
 // components/Navbar.stories.tsx
 import type { Meta, StoryObj } from '@storybook/react';
 import { Navbar } from './Navbar';
-import ArchiveIcon from '../ArchiveIcon'
-import UserIcon from '../UserIcon'
-
+import ArchiveIcon from '../ArchiveIcon';
+import UserIcon from '../UserIcon';
+import BackArrowIcon from '../BackArrowIcon';
 
 const meta: Meta<typeof Navbar> = {
   title: 'components/layout/Navbar',
@@ -46,5 +46,12 @@ export const Chat: Story = {
     title: '14:46:22:00',
     left: <ArchiveIcon />,
     right: <UserIcon />,
+  },
+};
+
+export const User: Story = {
+  args: {
+    title: 'User',
+    left: <BackArrowIcon />,
   },
 };
