@@ -40,3 +40,11 @@ export const WithIcons: Story = {
     right: <UserIcon />,
   },
 };
+
+export const Chat: Story = {
+  args: {
+    title: '14:46:22:00',
+    left: <ArchiveIcon />,
+    right: <UserIcon />,
+  },
+};
