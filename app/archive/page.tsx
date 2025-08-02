@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import styles from './ArchivePage.module.css';
 import Achievements from './Achievements.js';
 import ChatHistory from './ChatHistory.js';
+import { Navbar } from '../../components/layout/Navbar';
+import { BackButton } from '../../components/Buttons/BackButton';
 
 export default function ArchivePage() {
     const [activeTab, setActiveTab] = useState('chatHistory'); // 기본 탭: 대화기록
@@ -12,11 +13,10 @@ export default function ArchivePage() {
     return (
         <div className={styles.archivePage}>
             {/* 네비게이션 바 */}
-            <header className={styles.navbar}>
-                <Link href="/chat" className={styles.backButton}>〈</Link>
-                <h1 className={styles.title}>아카이브</h1>
-                <div className={styles.iconPlaceholder}></div>
-            </header>
+            <Navbar
+                title="Archive"
+                left={<BackButton ariaLabel="go back" />}
+            />
 
             {/* 탭 내용 */}
             <div className={styles.tabContent}>
