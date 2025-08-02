@@ -1,9 +1,9 @@
 // components/Navbar.stories.tsx
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { Navbar } from './Navbar';
-import ArchiveIcon from '../ArchiveIcon';
-import UserIcon from '../UserIcon';
-import BackArrowIcon from '../BackArrowIcon';
+import ArchiveIcon from '../Icons/ArchiveIcon';
+import UserIcon from '../Icons/UserIcon';
+import BackArrowIcon from '../Icons/BackArrowIcon';
 
 const meta: Meta<typeof Navbar> = {
   title: 'components/layout/Navbar',

@@ -1,10 +1,9 @@
-// components/__tests__/Navbar.test.tsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Navbar } from '../components/layout/Navbar';
-import ArchiveIcon from '../components/ArchiveIcon';
-import UserIcon from '../components/UserIcon';
-import BackArrowIcon from '../components/BackArrowIcon';
+import ArchiveIcon from '../components/Icons/ArchiveIcon';
+import UserIcon from '../components/Icons/UserIcon';
+import BackArrowIcon from '../components/Icons/BackArrowIcon';
 
 describe('Navbar', () => {
   it('renders the title', () => {
@@ -15,11 +14,11 @@ describe('Navbar', () => {
 
   it('renders left and right icons if provided', () => {
     render(
-        <Navbar
-            title="Icons"
-            left={<div data-testid="left-slot"><ArchiveIcon /></div>}
-            right={<div data-testid="right-slot"><UserIcon /></div>}
-        />
+      <Navbar
+        title="Icons"
+        left={<div data-testid="left-slot"><ArchiveIcon /></div>}
+        right={<div data-testid="right-slot"><UserIcon /></div>}
+      />
     )
 
     expect(screen.getByTestId('left-slot')).toBeInTheDocument();
@@ -28,10 +27,10 @@ describe('Navbar', () => {
 
   it('renders left icon only when right is omitted', () => {
     render(
-        <Navbar
-            title="Back Arrow"
-            left={<div data-testid="back-arrow"><BackArrowIcon /></div>}
-        />
+      <Navbar
+        title="Back Arrow"
+        left={<div data-testid="back-arrow"><BackArrowIcon /></div>}
+      />
     )
 
     expect(screen.getByTestId('back-arrow')).toBeInTheDocument();
