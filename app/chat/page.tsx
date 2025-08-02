@@ -194,8 +194,8 @@ export default function ChatPage() {
             {/* 네비게이션 바 */}
             <Navbar
                 title={title}
-                left={<NavIconButton to="/archive" icon={<UserIcon />} ariaLabel="archive" />}
-                right={<NavIconButton to="/user" icon={<ArchiveIcon />} ariaLabel="user" />}
+                left={<NavIconButton to="/user" icon={<UserIcon />} ariaLabel="user" />}
+                right={<NavIconButton to="/archive" icon={<ArchiveIcon />} ariaLabel="archive" />}
             />
 
 
