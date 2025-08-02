@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { useRouter } from 'next/navigation';
 import ArchiveIcon from '../components/Icons/ArchiveIcon';
 import UserIcon from '../components/Icons/UserIcon';
-import { NavIconButton } from '../components/NavIconButton';
+import { NavIconButton } from '../components/Buttons/NavIconButton';
 
 jest.mock('next/navigation', () => ({
     useRouter: jest.fn(),
