@@ -1,9 +1,22 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Navbar } from '../components/layout/Navbar';
+import { NavIconButton } from '../components/Buttons/NavIconButton';
+import { BackButton } from '../components/Buttons/BackButton';
 import ArchiveIcon from '../components/Icons/ArchiveIcon';
 import UserIcon from '../components/Icons/UserIcon';
-import BackArrowIcon from '../components/Icons/BackArrowIcon';
+
+jest.mock('../components/Buttons/NavIconButton', () => ({
+  NavIconButton: ({ ariaLabel, icon }: { ariaLabel: string, icon: React.ReactNode }) => (
+    <button aria-label={ariaLabel}>{icon}</button>
+  ),
+}));
+
+jest.mock('../components/Buttons/BackButton', () => ({
+  BackButton: ({ ariaLabel, icon }: { ariaLabel: string, icon: React.ReactNode }) => (
+    <button aria-label={ariaLabel}>{icon}</button>
+  ),
+}));
 
 describe('Navbar', () => {
   it('renders the title', () => {
@@ -11,30 +24,27 @@ describe('Navbar', () => {
     expect(screen.getByText('Test Title')).toBeInTheDocument();
   });
 
-
-  it('renders left and right icons if provided', () => {
+  it('renders NavIconButton components in left and right slots', () => {
     render(
       <Navbar
-        title="Icons"
-        left={<div data-testid="left-slot"><ArchiveIcon /></div>}
-        right={<div data-testid="right-slot"><UserIcon /></div>}
+        title="With Icons"
+        left={<NavIconButton to="/archive" icon={<ArchiveIcon />} ariaLabel="archive" />}
+        right={<NavIconButton to="/user" icon={<UserIcon />} ariaLabel="user" />}
       />
-    )
+    );
 
-    expect(screen.getByTestId('left-slot')).toBeInTheDocument();
-    expect(screen.getByTestId('right-slot')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'archive' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'user' })).toBeInTheDocument();
   });
 
-  it('renders left icon only when right is omitted', () => {
+  it('renders only left back button', () => {
     render(
       <Navbar
-        title="Back Arrow"
-        left={<div data-testid="back-arrow"><BackArrowIcon /></div>}
+        title="Back Only"
+        left={<BackButton ariaLabel='back arrow' />}
       />
-    )
+    );
 
-    expect(screen.getByTestId('back-arrow')).toBeInTheDocument();
-    expect(screen.queryByTestId('right-slot')).toBeNull();
-  })
-
+    expect(screen.getByRole('button', { name: 'back arrow' })).toBeInTheDocument();
+  });
 });
