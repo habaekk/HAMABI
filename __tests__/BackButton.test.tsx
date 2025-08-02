@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useRouter } from 'next/navigation';
 import BackArrowIcon from '../components/BackArrowIcon';
-
 import { BackButton } from '../components/BackButton';
 
 // router 모킹
