@@ -4,15 +4,15 @@ import { useRouter } from 'next/navigation';
 import BackArrowIcon from './BackArrowIcon';
 
 type Props = {
-  ariaLabel: string;
+    ariaLabel: string;
 };
 
 export const BackButton = ({ ariaLabel }: Props) => {
-  const router = useRouter();
+    const router = useRouter();
 
-  return (
-    <button aria-label={ariaLabel} onClick={() => router.back()}>
-      <BackArrowIcon />
-    </button>
-  );
+    return (
+        <button aria-label={ariaLabel} onClick={() => router.back()}>
+            <BackArrowIcon />
+        </button>
+    );
 };
