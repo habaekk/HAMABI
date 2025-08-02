@@ -3,13 +3,11 @@
 import styles from './ChatPage.module.css';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import UserIcon from '../../components/Icons/UserIcon';
 import ArchiveIcon from '../../components/Icons/ArchiveIcon';
 import { processUserMessage, summarizeChat } from '../LLM/LLMService';
 import { Navbar } from '../../components/layout/Navbar';
 import { NavIconButton } from '../../components/Buttons/NavIconButton';
-import { User } from '../../components/layout/Navbar.stories';
 
 export default function ChatPage() {
     const [message, setMessage] = useState('');
