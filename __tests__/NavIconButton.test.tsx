@@ -3,10 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { useRouter } from 'next/navigation';
 import ArchiveIcon from '../components/ArchiveIcon';
 import UserIcon from '../components/UserIcon';
+import { NavIconButton } from '../components/NavIconButton';
 
-import { NavIconButton } from '../components/NavIconButton'; // 컴포넌트는 나중에 만들 것
-
-// next/navigation의 useRouter를 모킹
 jest.mock('next/navigation', () => ({
     useRouter: jest.fn(),
 }));
