@@ -25,22 +25,6 @@ export const Default: Story = {
   },
 };
 
-export const WithPlaceholders: Story = {
-  args: {
-    title: 'Settings',
-    left: <div style={{ width: 16, height: 16, backgroundColor: 'gray' }} />,
-    right: <div style={{ width: 16, height: 16, backgroundColor: 'gray' }} />,
-  },
-};
-
-export const WithIcons: Story = {
-  args: {
-    title: 'Chat',
-    left: <ArchiveIcon />,
-    right: <UserIcon />,
-  },
-};
-
 export const Chat: Story = {
   args: {
     title: '14:46:22:00',
