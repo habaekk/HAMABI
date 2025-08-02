@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import styles from './UserPage.module.css';
+import { BackButton } from '../../components/Buttons/BackButton';
+import { Navbar } from '../../components/layout/Navbar';
 
 export default function UserPage() {
   const [chatBubbleStyle, setChatBubbleStyle] = useState('rounded');
@@ -13,11 +14,10 @@ export default function UserPage() {
     <div className={styles.userPage}>
 
       {/* 네비게이션 바 */}
-      <header className={styles.navbar}>
-        <Link href="/chat" className={styles.backButton}>〈</Link>
-        <h1 className={styles.title}>설정</h1>
-        <div className={styles.iconPlaceholder}></div>
-      </header>
+      <Navbar
+        title="User"
+        left={<BackButton ariaLabel="go back" />}
+      />
 
       {/* 프로필 섹션 */}
       <div className={styles.profileSection}>
