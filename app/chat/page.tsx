@@ -4,8 +4,8 @@ import styles from './ChatPage.module.css';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import UserIcon from '../../components/UserIcon';
-import ArchiveIcon from '../../components/ArchiveIcon';
+import UserIcon from '../../components/Icons/UserIcon';
+import ArchiveIcon from '../../components/Icons/ArchiveIcon';
 import { processUserMessage, summarizeChat } from '../LLM/LLMService';
 
 export default function ChatPage() {
