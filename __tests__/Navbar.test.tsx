@@ -7,14 +7,14 @@ import ArchiveIcon from '../components/Icons/ArchiveIcon';
 import UserIcon from '../components/Icons/UserIcon';
 
 jest.mock('../components/Buttons/NavIconButton', () => ({
-  NavIconButton: ({ ariaLabel, icon }: { ariaLabel: string, icon: React.ReactNode }) => (
-    <button aria-label={ariaLabel}>{icon}</button>
+  NavIconButton: ({ ariaLabel }: { ariaLabel: string }) => (
+    <button aria-label={ariaLabel}>Mocking Button</button>
   ),
 }));
 
 jest.mock('../components/Buttons/BackButton', () => ({
-  BackButton: ({ ariaLabel, icon }: { ariaLabel: string, icon: React.ReactNode }) => (
-    <button aria-label={ariaLabel}>{icon}</button>
+  BackButton: ({ ariaLabel }: { ariaLabel: string }) => (
+    <button aria-label={ariaLabel}>Mocking Button</button>
   ),
 }));
 
