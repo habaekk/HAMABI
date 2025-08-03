@@ -36,10 +36,9 @@ describe('ChatMessage', () => {
             />
         );
 
-        // DOM에는 존재하되 숨겨졌는지 검사
         const icon = screen.getByTestId('icon');
         expect(icon).toBeInTheDocument();
-        expect(icon.parentElement?.style.visibility).toBe('hidden');
+        expect(icon.parentElement).toHaveStyle({ visibility: 'hidden' });
 
         const box = screen.getByTestId('chat-box');
         expect(box).toBeInTheDocument();
