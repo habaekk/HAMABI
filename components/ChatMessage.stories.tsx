@@ -1,7 +1,6 @@
 // ChatMessage.stories.tsx
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { ChatMessage } from './ChatMessage';
-import { ChatBox } from './ChatBox';
 import RobotIcon from './Icons/RobotIcon';
 
 const meta = {
@@ -18,7 +17,6 @@ export const Robot: Story = {
         text: 'Hello! This is a robot message.',
         isUser: false,
         Icon: <RobotIcon />,
-        ChatBox: ChatBox,
     },
 };
 
@@ -27,26 +25,24 @@ export const User: Story = {
         text: 'Hi! This is a user message.',
         isUser: true,
         Icon: <></>,
-        ChatBox: ChatBox,
+
     },
 };
 
 export const LongRobot: Story = {
     args: {
         text: `This is a very long message from a robot. It should wrap and maintain the correct layout without breaking anything. 
-            It also contains new lines and emojis 🚀🤖 to test layout flexibility.`,
+It also contains new lines and emojis 🚀🤖 to test layout flexibility.`,
         isUser: false,
         Icon: <RobotIcon />,
-        ChatBox: ChatBox,
     },
 };
 
 export const LongUser: Story = {
     args: {
         text: `This is a long message from the user.
-            It should behave consistently just like the robot message, wrapping across multiple lines and keeping padding and spacing intact.`,
+It should behave consistently just like the robot message, wrapping across multiple lines and keeping padding and spacing intact.`,
         isUser: true,
         Icon: <></>,
-        ChatBox: ChatBox,
     },
 };
