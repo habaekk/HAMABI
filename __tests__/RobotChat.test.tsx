@@ -1,21 +1,23 @@
-// RobotChat.test.tsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { RobotChat } from '../components/RobotChat';
 
-jest.mock('./RobotIcon', () => ({
-  RobotIcon: () => <div data-testid="robot-icon" />,
+jest.mock('../components/Icons/RobotIcon', () => ({
+  __esModule: true,
+  default: () => <div data-testid="robot-icon" />,
 }));
 
-jest.mock('./RobotChatBox', () => ({
+jest.mock('../components/layout/RobotChatBox', () => ({
+  __esModule: true,
   RobotChatBox: ({ text }: { text: string }) => (
     <div data-testid="robot-chat-box">{text}</div>
   ),
 }));
 
+
 describe('RobotChat', () => {
   it('renders RobotIcon and RobotChatBox correctly', () => {
-    const message = 'Hello, I am a robot';
+    const message: string = 'Hello, I am a robot';
 
     render(<RobotChat text={message} />);
 
