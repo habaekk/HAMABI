@@ -20,11 +20,11 @@ export const ChatMessage = ({ text, isUser, Icon }: Props) => {
             </div>
 
             <div
-                className={
-                    isUser
-                        ? styles.userChatBoxContainer
-                        : styles.robotChatBoxContainer
-                }
+                className={`${styles.chatBoxContainer} 
+                ${isUser ?
+                        styles.userChatBoxContainer :
+                        styles.robotChatBoxContainer
+                    }`}
             >
                 <ChatBox text={text} isUser={isUser} />
             </div>

@@ -13,7 +13,13 @@ export const ChatBox = ({ text, isUser }: Props) => {
     ].join(' ');
 
     return (
-        <div className={boxClass}>
+        <div
+            className={`${styles.chatBox} 
+            ${isUser ?
+                    styles.userChatBox : 
+                    styles.robotChatBox
+                }`}
+        >
             <p className={styles.chatText}>{text}</p>
         </div>
     );
