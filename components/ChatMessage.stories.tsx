@@ -24,7 +24,7 @@ export const User: Story = {
     args: {
         text: 'Hi! This is a user message.',
         isUser: true,
-        Icon: <></>,
+        Icon: <RobotIcon />,
 
     },
 };
@@ -43,6 +43,6 @@ export const LongUser: Story = {
         text: `This is a long message from the user.
 It should behave consistently just like the robot message, wrapping across multiple lines and keeping padding and spacing intact.`,
         isUser: true,
-        Icon: <></>,
+        Icon: <RobotIcon />,
     },
 };
