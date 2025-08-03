@@ -20,12 +20,12 @@
   justify-content: center;
 }
 
-.iconPlaceholder {
+/* .iconPlaceholder {
   width: 1.5rem;
   height: 1.5rem;
   background-color: #ccc;
   border-radius: 4px;
-}
+} */
 
 .navTitle {
   flex: 1;
