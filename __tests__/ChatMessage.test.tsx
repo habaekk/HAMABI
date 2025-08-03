@@ -13,17 +13,19 @@ describe('ChatMessage', () => {
                 text={message}
                 isUser={false}
                 Icon={<DummyIcon />}
-                Box={({ text }) => <div data-testid="chat-box">{text}</div>}
             />
         );
 
-        expect(screen.getByTestId('icon')).toBeInTheDocument();
+        // 아이콘이 실제로 존재하는지
+        const icon = screen.getByTestId('icon');
+        expect(icon).toBeInTheDocument();
+
         const box = screen.getByTestId('chat-box');
         expect(box).toBeInTheDocument();
         expect(box).toHaveTextContent(message);
     });
 
-    it('renders only chat box for user message', () => {
+    it('renders icon but hides it visually for user message', () => {
         const message = 'Hello from user';
 
         render(
@@ -31,11 +33,14 @@ describe('ChatMessage', () => {
                 text={message}
                 isUser={true}
                 Icon={<DummyIcon />}
-                Box={({ text }) => <div data-testid="chat-box">{text}</div>}
             />
         );
 
-        expect(screen.queryByTestId('icon')).not.toBeInTheDocument();
+        // DOM에는 존재하되 숨겨졌는지 검사
+        const icon = screen.getByTestId('icon');
+        expect(icon).toBeInTheDocument();
+        expect(icon.parentElement?.style.visibility).toBe('hidden');
+
         const box = screen.getByTestId('chat-box');
         expect(box).toBeInTheDocument();
         expect(box).toHaveTextContent(message);

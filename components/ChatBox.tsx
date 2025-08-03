@@ -7,10 +7,6 @@ type Props = {
 };
 
 export const ChatBox = ({ text, isUser }: Props) => {
-    const boxClass = [
-        styles.chatBox,
-        isUser ? styles.userChatBox : styles.robotChatBox
-    ].join(' ');
 
     return (
         <div
@@ -19,6 +15,7 @@ export const ChatBox = ({ text, isUser }: Props) => {
                     styles.userChatBox : 
                     styles.robotChatBox
                 }`}
+            data-testid="chat-box"
         >
             <p className={styles.chatText}>{text}</p>
         </div>
