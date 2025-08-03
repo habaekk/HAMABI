@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 0 0 0;
+}
+
+.left {
+  display: flex;
+  align-items: flex-end;
+}
+
+.right {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 0 1rem 0;
+}
