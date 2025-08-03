@@ -6,5 +6,9 @@ type Props = {
 };
 
 export const RobotChatBox = ({ text }: Props) => {
-  return <div className={styles.chatBox}>{text}</div>;
+  return (
+    <div className={styles.chatBox}>
+      <p className={styles.chatText}>{text}</p>
+    </div>
+  );
 };

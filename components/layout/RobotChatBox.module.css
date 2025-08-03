@@ -1,11 +1,21 @@
 .chatBox {
-    width: 20rem;
-    height: 2.5rem;
+    max-width: 20rem;
+    min-height: 1rem;
+    width: fit-content;
+    height: auto;
+    padding: 0.5rem 1rem;
+
     background-color: #FFB18C;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 0;
+}
+
+.chatText {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #000;
     white-space: pre-wrap;
     word-break: break-word;
 }
