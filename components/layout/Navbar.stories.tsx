@@ -1,5 +1,5 @@
 // components/Navbar.stories.tsx
-import type { Meta, StoryObj } from '@storybook/nextjs';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Navbar } from './Navbar';
 import ArchiveIcon from '../Icons/ArchiveIcon';
 import UserIcon from '../Icons/UserIcon';
