@@ -11,7 +11,7 @@ type Props = {
 
 export const ChatMessage = ({ text, isUser, Icon }: Props) => {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid="chat-message">
             <div
                 className={styles.iconContainer}
                 style={{ visibility: isUser ? 'hidden' : 'visible' }}
