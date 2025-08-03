@@ -29,6 +29,12 @@ export const LongConversation: Story = {
       { sender: 'robot', content: '서울의 현재 날씨는 맑고 28도입니다.' },
       { sender: 'user', content: '내일은?' },
       { sender: 'robot', content: '내일은 흐리고 비가 올 확률이 60%입니다.' },
+      { sender: 'user', content: '우산 챙겨야겠네. 고마워!' },
+      { sender: 'robot', content: '안녕하세요, 무엇을 도와드릴까요?' },
+      { sender: 'user', content: '날씨 알려줘.' },
+      { sender: 'robot', content: '서울의 현재 날씨는 맑고 28도입니다.' },
+      { sender: 'user', content: '내일은?' },
+      { sender: 'robot', content: '내일은 흐리고 비가 올 확률이 60%입니다.' },
       { sender: 'user', content: '우산 챙겨야겠네. 고마워!' }
     ],
   },
