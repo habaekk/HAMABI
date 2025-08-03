@@ -2,8 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ChatWindow } from '../components/ChatWindow';
 
+type Message = {
+  sender: 'robot' | 'user';
+  content: string;
+};
+
 describe('ChatWindow', () => {
-    const messages = [
+    const messages: Message[] = [
         { sender: 'robot', content: 'content' },
         { sender: 'user', content: 'content2' },
         { sender: 'robot', content: 'content3' }
