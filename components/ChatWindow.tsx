@@ -2,11 +2,7 @@ import React from 'react';
 import { ChatMessage } from './ChatMessage';
 import RobotIcon from './Icons/RobotIcon';
 import styles from './ChatWindow.module.css';
-
-type Message = {
-  sender: 'robot' | 'user';
-  content: string;
-};
+import { Message } from '../types/Message';
 
 type Props = {
   messages: Message[];
