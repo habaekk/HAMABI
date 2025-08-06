@@ -199,19 +199,8 @@ export default function ChatPage() {
                 right={<NavIconButton to="/archive" icon={<ArchiveIcon />} ariaLabel="archive" />}
             />
 
-
-            <div className={styles.chatWindow} ref={chatWindowRef}>
-                {messages.map((msg, index) => (
-                    <div
-                        key={index}
-                        className={`${styles.message} ${msg.isUser ? styles.user : styles.bot}`}
-                    >
-                        {msg.text}
-                    </div>
-                ))}
-                <div ref={chatEndRef}></div>
-            </div>
-
+            <ChatWindow messages={ messages } />
+            
             {showScrollButton && (
                 <button className={styles.scrollToBottom} onClick={scrollToBottom}>
                     <Image src="/arrow-down.svg" alt="Scroll Down" width={24} height={24} />
