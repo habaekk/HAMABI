@@ -8,13 +8,14 @@ import ArchiveIcon from '../../components/Icons/ArchiveIcon';
 import { processUserMessage, summarizeChat } from '../LLM/LLMService';
 import { Navbar } from '../../components/layout/Navbar';
 import { NavIconButton } from '../../components/Buttons/NavIconButton';
+import { ChatWindow } from '../../components/ChatWindow';
+import { Message } from '../../types/Message';
 
 export default function ChatPage() {
-    const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([
-        { text: "Hello I'm Hamabi. 😊", isUser: false },
-        { text: "Which conversation do you want to share with me?", isUser: false },
-    ]); // 초기 봇 메시지 추가
+    const [messages, setMessages] = useState<Message[]>([
+        { sender: 'robot', content: "Hello I'm Hamabi. 😊" },
+        { sender: 'robot', content: "Which conversation do you want to share with me?" },
+    ]);
     const [showScrollButton, setShowScrollButton] = useState(false); // 스크롤 버튼 표시 여부
     const [title, setTitle] = useState(''); // 헤더 타이틀 (날짜 + 카운트다운)
 
