@@ -158,34 +158,35 @@ export default function ChatPage() {
 
 
         try {
-            // ✅ 2. LLM 요청 전 로그
+            // 1. LLM 요청 전 로그
             const requestPayload = messages.map(msg => ({
-                role: msg.isUser ? 'user' : 'assistant',
-                content: msg.text
+                role: msg.sender === 'user' ? 'user' : 'assistant',
+                content: msg.content,
             }));
             console.log('Request Payload to LLM:', requestPayload);
 
             // 2. LLM에게 응답 요청
             const response = await summarizeChat(requestPayload);
 
-            // ✅ 3. LLM 응답 받은 후 로그
+            // 3. LLM 응답 받은 후 로그
             console.log('LLM Response:', response);
 
             // 3. 받은 응답 메시지를 상태에 추가
-            const botMessage = { text: response.content, isUser: false };
+            const botMessage: Message = { sender: 'robot', content: response.content };
             setMessages(prev => [...prev, botMessage]);
 
-            // ✅ 4. 최종 상태 확인
+            // 4. 최종 상태 확인
             console.log('Final Messages after Response:', [...messages, botMessage]);
 
         } catch (err) {
-            // ✅ 5. 오류 발생 시 로그
+            // 5. 오류 발생 시 로그
             console.error('Error during message processing:', err);
             setMessages(prev => [
                 ...prev,
-                { text: '😢 하마미가 잠깐 멍했어요. 다시 말해줄래요?', isUser: false }
+                { sender: 'robot', content: '😢 하마미가 잠깐 멍했어요. 다시 말해줄래요?' }
             ]);
         }
+
     };
 
 
