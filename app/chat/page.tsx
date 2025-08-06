@@ -125,7 +125,7 @@ export default function ChatPage() {
                 console.error('Error during message processing:', err);
                 setMessages(prev => [
                     ...prev,
-                    { sender: 'robot', content: '😢 하마미가 잠깐 멍했어요. 다시 말해줄래요?' }
+                    { sender: 'robot', content: '😢 Hamami spaced out for a moment... Could you say that again?' }
                 ]);
             }
         }
@@ -183,7 +183,7 @@ export default function ChatPage() {
             console.error('Error during message processing:', err);
             setMessages(prev => [
                 ...prev,
-                { sender: 'robot', content: '😢 하마미가 잠깐 멍했어요. 다시 말해줄래요?' }
+                { sender: 'robot', content: '😢 Hamami spaced out for a moment... Could you say that again?' }
             ]);
         }
 
