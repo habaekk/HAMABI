@@ -41,16 +41,6 @@ const summaryData = {
   '2024-02-01': 'The Mood of a Morning with Hamabi'
 };
 
-
-// 날짜별 대화 그룹화
-const groupByDate = (data) => {
-  return data.reduce((acc, { date, time, content, sender }) => {
-    if (!acc[date]) acc[date] = [];
-    acc[date].push({ time, content, sender });
-    return acc;
-  }, {});
-};
-
 const getMessagesByDate = (date) => {
   return chatHistoryData
     .filter(item => item.date === date)
@@ -62,8 +52,6 @@ const getMessagesByDate = (date) => {
 export default function ChatHistory() {
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-
-  const groupedData = groupByDate(chatHistoryData);
 
   // 날짜 클릭 시 모달 열기
   const handleDateClick = (date) => {
