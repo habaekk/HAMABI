@@ -41,12 +41,13 @@ const summaryData = {
 
 // 날짜별 대화 그룹화
 const groupByDate = (data) => {
-  return data.reduce((acc, { date, time, message, sender }) => {
+  return data.reduce((acc, { date, time, content, sender }) => {
     if (!acc[date]) acc[date] = [];
-    acc[date].push({ time, message, sender });
+    acc[date].push({ time, content, sender });
     return acc;
   }, {});
 };
+
 
 export default function ChatHistory() {
   const [showModal, setShowModal] = useState(false);
