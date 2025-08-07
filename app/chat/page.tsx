@@ -8,13 +8,15 @@ import ArchiveIcon from '../../components/Icons/ArchiveIcon';
 import { processUserMessage, summarizeChat } from '../LLM/LLMService';
 import { Navbar } from '../../components/layout/Navbar';
 import { NavIconButton } from '../../components/Buttons/NavIconButton';
+import { ChatWindow } from '../../components/ChatWindow';
+import { Message } from '../../types/Message';
 
 export default function ChatPage() {
     const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([
-        { text: "Hello I'm Hamabi. 😊", isUser: false },
-        { text: "Which conversation do you want to share with me?", isUser: false },
-    ]); // 초기 봇 메시지 추가
+    const [messages, setMessages] = useState<Message[]>([
+        { sender: 'robot', content: "Hello I'm Hamabi. 😊" },
+        { sender: 'robot', content: "Which conversation do you want to share with me?" },
+    ]);
     const [showScrollButton, setShowScrollButton] = useState(false); // 스크롤 버튼 표시 여부
     const [title, setTitle] = useState(''); // 헤더 타이틀 (날짜 + 카운트다운)
 
@@ -85,13 +87,12 @@ export default function ChatPage() {
     }, []);
 
     // 메시지 전송 함수
-    // 메시지 전송 함수
     const handleSendMessage = async () => {
         if (message.trim()) {
-            const userMessage = { text: message, isUser: true };
+            const userMessage: Message = { sender: 'user', content: message };
             const updatedMessages = [...messages, userMessage];
 
-            // ✅ 1. 유저 메시지 추가 직후 로그
+            // 1. 유저 메시지 추가 직후 로그
             console.log('Updated Messages (User Added):', updatedMessages);
 
             // 1. 유저 메시지 먼저 추가
@@ -99,36 +100,37 @@ export default function ChatPage() {
             setMessage('');
 
             try {
-                // ✅ 2. LLM 요청 전 로그
+                // 2. LLM 요청 전 로그
                 const requestPayload = updatedMessages.map(msg => ({
-                    role: msg.isUser ? 'user' : 'assistant',
-                    content: msg.text
+                    role: msg.sender === 'user' ? 'user' : 'assistant',
+                    content: msg.content
                 }));
                 console.log('Request Payload to LLM:', requestPayload);
 
                 // 2. LLM에게 응답 요청
                 const response = await processUserMessage(requestPayload);
 
-                // ✅ 3. LLM 응답 받은 후 로그
+                // 3. LLM 응답 받은 후 로그
                 console.log('LLM Response:', response);
 
                 // 3. 받은 응답 메시지를 상태에 추가
-                const botMessage = { text: response.content, isUser: false };
+                const botMessage: Message = { sender: 'robot', content: response.content };
                 setMessages(prev => [...prev, botMessage]);
 
-                // ✅ 4. 최종 상태 확인
+                // 4. 최종 상태 확인
                 console.log('Final Messages after Response:', [...updatedMessages, botMessage]);
 
             } catch (err) {
-                // ✅ 5. 오류 발생 시 로그
+                // 5. 오류 발생 시 로그
                 console.error('Error during message processing:', err);
                 setMessages(prev => [
                     ...prev,
-                    { text: '😢 하마미가 잠깐 멍했어요. 다시 말해줄래요?', isUser: false }
+                    { sender: 'robot', content: '😢 Hamami spaced out for a moment... Could you say that again?' }
                 ]);
             }
         }
     };
+
 
 
     // 엔터 키 입력 시 메시지 전송
@@ -156,34 +158,35 @@ export default function ChatPage() {
 
 
         try {
-            // ✅ 2. LLM 요청 전 로그
+            // 1. LLM 요청 전 로그
             const requestPayload = messages.map(msg => ({
-                role: msg.isUser ? 'user' : 'assistant',
-                content: msg.text
+                role: msg.sender === 'user' ? 'user' : 'assistant',
+                content: msg.content,
             }));
             console.log('Request Payload to LLM:', requestPayload);
 
             // 2. LLM에게 응답 요청
             const response = await summarizeChat(requestPayload);
 
-            // ✅ 3. LLM 응답 받은 후 로그
+            // 3. LLM 응답 받은 후 로그
             console.log('LLM Response:', response);
 
             // 3. 받은 응답 메시지를 상태에 추가
-            const botMessage = { text: response.content, isUser: false };
+            const botMessage: Message = { sender: 'robot', content: response.content };
             setMessages(prev => [...prev, botMessage]);
 
-            // ✅ 4. 최종 상태 확인
+            // 4. 최종 상태 확인
             console.log('Final Messages after Response:', [...messages, botMessage]);
 
         } catch (err) {
-            // ✅ 5. 오류 발생 시 로그
+            // 5. 오류 발생 시 로그
             console.error('Error during message processing:', err);
             setMessages(prev => [
                 ...prev,
-                { text: '😢 하마미가 잠깐 멍했어요. 다시 말해줄래요?', isUser: false }
+                { sender: 'robot', content: '😢 Hamami spaced out for a moment... Could you say that again?' }
             ]);
         }
+
     };
 
 
@@ -196,19 +199,8 @@ export default function ChatPage() {
                 right={<NavIconButton to="/archive" icon={<ArchiveIcon />} ariaLabel="archive" />}
             />
 
-
-            <div className={styles.chatWindow} ref={chatWindowRef}>
-                {messages.map((msg, index) => (
-                    <div
-                        key={index}
-                        className={`${styles.message} ${msg.isUser ? styles.user : styles.bot}`}
-                    >
-                        {msg.text}
-                    </div>
-                ))}
-                <div ref={chatEndRef}></div>
-            </div>
-
+            <ChatWindow messages={ messages } />
+            
             {showScrollButton && (
                 <button className={styles.scrollToBottom} onClick={scrollToBottom}>
                     <Image src="/arrow-down.svg" alt="Scroll Down" width={24} height={24} />
