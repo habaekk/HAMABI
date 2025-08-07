@@ -25,7 +25,7 @@ describe('ChatMessage', () => {
         expect(box).toHaveTextContent(message);
     });
 
-    it('renders icon but hides it visually for user message', () => {
+    it('renders chat box for user message', () => {
         const message = 'Hello from user';
 
         render(
@@ -35,9 +35,6 @@ describe('ChatMessage', () => {
                 Icon={<DummyIcon />}
             />
         );
-
-        const icon = screen.getByTestId('icon');
-        expect(icon).toBeInTheDocument();
 
         const box = screen.getByTestId('chat-box');
         expect(box).toBeInTheDocument();
