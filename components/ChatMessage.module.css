@@ -9,7 +9,7 @@
 }
 
 .chatBoxContainer {
-    max-width: 20rem;
+  max-width: 20rem;
 }
 
 .robotChatBoxContainer {
@@ -21,6 +21,4 @@
 .userChatBoxContainer {
   display: flex;
   margin-left: auto;
-  padding: 0 0 0 0;
 }
-
