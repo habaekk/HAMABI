@@ -55,10 +55,14 @@ const chat = async (messages, _model) => {
   }
 
   let content = '';
+  const decoder = new TextDecoder();
   
   while (true) {
     try {
-      const rawjson = new TextDecoder().decode(value);
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      const rawjson = decoder.decode(value);
 
       let json;
       try {

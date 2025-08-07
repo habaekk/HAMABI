@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: flex-end;
+}
+
+.chatBoxContainer {
+  max-width: 20rem;
+}
+
+.robotChatBoxContainer {
+  display: flex;
+  align-items: flex-start;
+  padding: 0 0 1rem 0;
+}
+
+.userChatBoxContainer {
+  display: flex;
+  margin-left: auto;
+}
