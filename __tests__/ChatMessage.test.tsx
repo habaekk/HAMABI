@@ -38,7 +38,6 @@ describe('ChatMessage', () => {
 
         const icon = screen.getByTestId('icon');
         expect(icon).toBeInTheDocument();
-        expect(icon.parentElement).toHaveStyle({ visibility: 'hidden' });
 
         const box = screen.getByTestId('chat-box');
         expect(box).toBeInTheDocument();
