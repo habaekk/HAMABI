@@ -66,48 +66,6 @@
     background-color: #1976D2;
 }
 
-.message {
-    display: inline-block;
-    max-width: 70%;
-    word-break: keep-all;
-    padding: 0.6rem;
-    margin-bottom: 0.6rem;
-    border-radius: 0.6rem;
-    font-size: 0.9rem;
-}
-
-.user {
-    background-color: #2196F3;
-    color: white;
-    align-self: flex-end;
-    text-align: right;
-    border-radius: 0.6rem 0.6rem 0px 0.6rem;
-}
-
-.bot {
-    background-color: #e0e0e0;
-    color: black;
-    align-self: flex-start;
-    text-align: left;
-    border-radius: 0.6rem 0.6rem 0.6rem 0px;
-}
-
-.iconButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.iconButton:hover {
-    background-color: #e0e0e0;
-}
-
 .scrollToBottom {
     position: fixed;
     bottom: 5rem;
