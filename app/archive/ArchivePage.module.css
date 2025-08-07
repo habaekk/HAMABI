@@ -45,7 +45,6 @@
     flex-grow: 1;
     width: 100%;
     padding: 20px;
-    text-align: center;
     box-sizing: border-box;
     overflow-y: auto;
     margin-bottom: 60px; /* 하단 탭 위 공간 확보 */
