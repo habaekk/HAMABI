@@ -91,7 +91,7 @@ export default function ChatHistory() {
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             {/* 고정된 타이틀 바 */}
             <div className={styles.modalHeader}>
-              <h3 className={styles.modalTitle}>{selectedDate} 대화 기록</h3>
+              <h3 className={styles.modalTitle}>{selectedDate}</h3>
               <button className={styles.closeButton} onClick={closeModal}>✖️</button>
             </div>
 
