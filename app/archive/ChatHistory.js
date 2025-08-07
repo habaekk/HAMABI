@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import styles from './ChatHistory.module.css';
+import { ChatWindow } from '../../components/ChatWindow';
 
 // 대화 기록 예제 데이터
 const chatHistoryData = [
@@ -48,6 +49,13 @@ const groupByDate = (data) => {
   }, {});
 };
 
+const getMessagesByDate = (date) => {
+  return chatHistoryData
+    .filter(item => item.date === date)
+    .sort((a, b) => a.time.localeCompare(b.time)) // 시간 순 정렬
+    .map(({ sender, content }) => ({ sender, content }));
+};
+
 
 export default function ChatHistory() {
   const [showModal, setShowModal] = useState(false);
@@ -87,14 +95,8 @@ export default function ChatHistory() {
               <button className={styles.closeButton} onClick={closeModal}>✖️</button>
             </div>
 
-            {/* 스크롤 가능한 채팅 내용 */}
-            <div className={styles.modalMessages}>
-              {groupedData[selectedDate]?.map((msg, index) => (
-                <div key={index} className={`${styles.chatMessage} ${msg.sender === 'user' ? styles.userMessage : styles.hamabiMessage}`}>
-                  <div className={styles.message}>{msg.message}</div>
-                </div>
-              )) || <div className={styles.noData}>대화 기록이 없습니다.</div>}
-            </div>
+            {/* Chat Window */}
+            <ChatWindow messages={getMessagesByDate(selectedDate)} />
           </div>
         </div>
       )}
