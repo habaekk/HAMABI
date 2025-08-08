@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { ChatWindow } from '../components/chat/ChatWindow';
-import type { Message } from '../types/Message';
+import { ChatWindow } from '@/components/chat/ChatWindow';
+import type { Message } from '@/types/Message';
 
 describe('ChatWindow', () => {
     const messages: Message[] = [

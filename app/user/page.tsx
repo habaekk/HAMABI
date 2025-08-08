@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import styles from './UserPage.module.css';
-import { BackButton } from '../../components/ui/Button/BackButton';
-import { Navbar } from '../../components/ui/Layout/Navbar';
+import { BackButton } from '@/components/ui/Button/BackButton';
+import { Navbar } from '@/components/ui/Layout/Navbar';
 
 export default function UserPage() {
   const [chatBubbleStyle, setChatBubbleStyle] = useState('rounded');

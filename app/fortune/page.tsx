@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { drawOneCard, drawThreeCards } from '../api/fortune';
+import { drawOneCard, drawThreeCards } from '@/app/api/fortune';
 
 export default function Fortune() {
   const [cards, setCards] = useState([]);

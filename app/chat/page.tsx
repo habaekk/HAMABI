@@ -3,13 +3,13 @@
 import styles from './ChatPage.module.css';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import UserIcon from '../../components/ui/Icon/UserIcon';
-import ArchiveIcon from '../../components/ui/Icon/ArchiveIcon';
-import { processUserMessage, summarizeChat } from '../LLM/LLMService';
-import { Navbar } from '../../components/ui/Layout/Navbar';
-import { NavIconButton } from '../../components/ui/Button/NavIconButton';
-import { ChatWindow } from '../../components/chat/ChatWindow';
-import { Message } from '../../types/Message';
+import UserIcon from '@/components/ui/Icon/UserIcon';
+import ArchiveIcon from '@/components/ui/Icon/ArchiveIcon';
+import { processUserMessage, summarizeChat } from '@/app/LLM/LLMService';
+import { Navbar } from '@/components/ui/Layout/Navbar';
+import { NavIconButton } from '@/components/ui/Button/NavIconButton';
+import { ChatWindow } from '@/components/chat/ChatWindow';
+import { Message } from '@/types/Message';
 
 export default function ChatPage() {
     const [message, setMessage] = useState('');

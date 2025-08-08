@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './ChatHistory.module.css';
-import { ChatWindow } from '../../components/chat/ChatWindow';
+import { ChatWindow } from '@/components/chat/ChatWindow';
 
 // 대화 기록 예제 데이터
 const chatHistoryData = [

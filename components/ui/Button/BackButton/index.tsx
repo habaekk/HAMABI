@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import BackArrowIcon from '../../Icon/BackArrowIcon';
+import BackArrowIcon from '@/components/ui/Icon/BackArrowIcon';
 
 type Props = {
     ariaLabel: string;

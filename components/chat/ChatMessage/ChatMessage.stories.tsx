@@ -1,7 +1,7 @@
 // ChatMessage.stories.tsx
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { ChatMessage } from './index';
-import RobotIcon from '../../ui/Icon/RobotIcon';
+import RobotIcon from '@/components/ui/Icon/RobotIcon';
 
 const meta = {
     title: 'Chat/ChatMessage',
