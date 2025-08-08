@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Navbar } from '../components/layout/Navbar';
-import { NavIconButton } from '../components/Buttons/NavIconButton';
-import { BackButton } from '../components/Buttons/BackButton';
-import ArchiveIcon from '../components/Icons/ArchiveIcon';
-import UserIcon from '../components/Icons/UserIcon';
+import { Navbar } from '../components/ui/Layout/Navbar';
+import { NavIconButton } from '../components/ui/Button/NavIconButton';
+import { BackButton } from '../components/ui/Button/BackButton';
+import ArchiveIcon from '../components/ui/Icon/ArchiveIcon';
+import UserIcon from '../components/ui/Icon/UserIcon';
 
-jest.mock('../components/Buttons/NavIconButton', () => ({
+jest.mock('../components/ui/Button/NavIconButton', () => ({
   NavIconButton: ({ ariaLabel }: { ariaLabel: string }) => (
     <button aria-label={ariaLabel}>Mocking Button</button>
   ),
 }));
 
-jest.mock('../components/Buttons/BackButton', () => ({
+jest.mock('../components/ui/Button/BackButton', () => ({
   BackButton: ({ ariaLabel }: { ariaLabel: string }) => (
     <button aria-label={ariaLabel}>Mocking Button</button>
   ),

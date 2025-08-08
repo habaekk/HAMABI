@@ -1,8 +1,8 @@
 import React from 'react';
-import { ChatMessage } from './ChatMessage';
-import RobotIcon from './Icons/RobotIcon';
+import { ChatMessage } from '../ChatMessage';
+import RobotIcon from '../../ui/Icon/RobotIcon';
 import styles from './ChatWindow.module.css';
-import { Message } from '../types/Message';
+import { Message } from '../../../types/Message';
 
 type Props = {
   messages: Message[];
