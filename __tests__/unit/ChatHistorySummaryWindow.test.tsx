@@ -5,8 +5,14 @@ import ChatHistorySummaryWindow from '@/components/ui/ChatHistorySummaryWindow';
 // Mock child to keep test focused on window behavior only
 jest.mock('@/components/ui/ChatHistorySummary', () => ({
   __esModule: true,
-  default: ({ date, summary }: { date: string; summary: string }) => (
-    <div data-testid="chat-history-summary" data-date={date} data-summary={summary} />
+  default: ({ date, summary, onClick }: { date: string; summary: string; onClick?: () => void }) => (
+    <div
+      data-testid="chat-history-summary"
+      data-date={date}
+      data-summary={summary}
+      onClick={onClick}
+      role={onClick ? 'button' : undefined}
+    />
   ),
 }));
 
