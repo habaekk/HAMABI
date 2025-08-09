@@ -2,6 +2,15 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ChatMessage } from '@/components/chat/ChatMessage';
 
+// 하위 컴포넌트 의존성 제거: ChatBox를 목으로 대체해 ChatMessage 자체 로직만 검증
+jest.mock('@/components/chat/ChatBox', () => ({
+  ChatBox: ({ text, isUser }: any) => (
+    <div data-testid="chat-box" data-isuser={isUser ? 'true' : 'false'}>
+      {text}
+    </div>
+  ),
+}));
+
 const DummyIcon = () => <div data-testid="icon" />;
 
 describe('ChatMessage', () => {
