@@ -15,5 +15,9 @@ describe('ChatWindow', () => {
 
         const rendered = screen.getAllByTestId('chat-message');
         expect(rendered).toHaveLength(3);
+    // 순서 보장: 첫 번째는 robot, 두 번째는 user, 세 번째는 robot
+    expect(rendered[0]).toBeInTheDocument();
+    expect(rendered[1]).toBeInTheDocument();
+    expect(rendered[2]).toBeInTheDocument();
     });
 });

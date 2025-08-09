@@ -46,5 +46,7 @@ describe('Navbar', () => {
     );
 
     expect(screen.getByRole('button', { name: 'back arrow' })).toBeInTheDocument();
+    // 오른쪽은 placeholder가 렌더되어야 함 (버튼 없음)
+    expect(screen.queryByRole('button', { name: 'user' })).toBeNull();
   });
 });

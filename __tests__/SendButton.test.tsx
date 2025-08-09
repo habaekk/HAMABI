@@ -18,7 +18,9 @@ describe('SendButton', () => {
   it('does not call onClick when disabled', () => {
     const onClick = jest.fn();
     render(<SendButton onClick={onClick} disabled />);
-    fireEvent.click(screen.getByRole('button', { name: 'send' }));
+    const button = screen.getByRole('button', { name: 'send' });
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
     expect(onClick).not.toHaveBeenCalled();
   });
 });

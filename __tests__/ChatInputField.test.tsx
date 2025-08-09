@@ -25,6 +25,12 @@ describe('ChatInputField', () => {
     fireEvent.keyDown(input, { key: 'Enter' });
     expect(onKeyDown).toHaveBeenCalled();
   });
+
+  it('renders default placeholder when not provided', () => {
+    render(<ChatInputField value="" onChange={() => {}} />);
+    const input = screen.getByLabelText('chat-input');
+    expect(input).toHaveAttribute('placeholder', 'Type here...');
+  });
 });
 
 
