@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styles from './ChatHistory.module.css';
 import { ChatWindow } from '@/components/chat/ChatWindow';
 import ChatHistorySummaryWindow from '@/components/ui/ChatHistorySummaryWindow';
+import ChatHistoryModal from '@/components/ui/ChatHistoryModal';
 
 // 대화 기록 예제 데이터
 const chatHistoryData = [
@@ -76,20 +77,12 @@ export default function ChatHistory() {
       />
 
       {/* 버블팝 모달 */}
-      {showModal && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            {/* 고정된 타이틀 바 */}
-            <div className={styles.modalHeader}>
-              <h3 className={styles.modalTitle}>{selectedDate}</h3>
-              <button className={styles.closeButton} onClick={closeModal}>✖️</button>
-            </div>
-
-            {/* Chat Window */}
-            <ChatWindow messages={getMessagesByDate(selectedDate)} />
-          </div>
-        </div>
-      )}
+      <ChatHistoryModal
+        isOpen={showModal}
+        title={selectedDate}
+        messages={getMessagesByDate(selectedDate)}
+        onClose={closeModal}
+      />
     </div>
   );
 }
