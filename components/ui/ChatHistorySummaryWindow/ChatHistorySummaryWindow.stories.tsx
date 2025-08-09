@@ -35,10 +35,7 @@ export const ManyItemsScrollable: Story = {
 export const ClickableItems: Story = {
   args: {
     items: sampleItems.slice(0, 5),
-    onItemClick: (item) => {
-      // eslint-disable-next-line no-alert
-      alert(`Clicked: ${item.date} - ${item.summary}`);
-    },
+    onItemClick: () => {},
   },
 };
 

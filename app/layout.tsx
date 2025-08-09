@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Orbitron } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,15 +10,16 @@ export const metadata: Metadata = {
 	},
 };
 
+const orbitron = Orbitron({ subsets: ["latin"], display: "swap" });
+
 export default function Layout({ children }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
       </head>
-      <body>
+      <body className={orbitron.className}>
         <div className="app-container">
           <main>{children}</main>
         </div>

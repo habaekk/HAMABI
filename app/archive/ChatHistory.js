@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import styles from './ChatHistory.module.css';
-import { ChatWindow } from '@/components/chat/ChatWindow';
 import ChatHistorySummaryWindow from '@/components/ui/ChatHistorySummaryWindow';
 import ChatHistoryModal from '@/components/ui/ChatHistoryModal';
 
