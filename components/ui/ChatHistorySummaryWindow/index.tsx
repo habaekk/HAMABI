@@ -10,11 +10,13 @@ export type ChatHistorySummaryItem = {
 export type ChatHistorySummaryWindowProps = {
   items: ChatHistorySummaryItem[];
   maxHeight?: string; // optional height constraint to enable scroll in isolation
+  onItemClick?: (item: ChatHistorySummaryItem, index: number) => void;
 };
 
 const ChatHistorySummaryWindow: React.FC<ChatHistorySummaryWindowProps> = ({
   items,
   maxHeight,
+  onItemClick,
 }) => {
   return (
     <div
@@ -29,6 +31,7 @@ const ChatHistorySummaryWindow: React.FC<ChatHistorySummaryWindowProps> = ({
           key={`${item.date}-${index}`}
           date={item.date}
           summary={item.summary}
+          onClick={onItemClick ? () => onItemClick(item, index) : undefined}
         />
       ))}
     </div>

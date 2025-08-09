@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import ChatHistorySummaryWindow from '@/components/ui/ChatHistorySummaryWindow';
 
 // Mock child to keep test focused on window behavior only
@@ -36,6 +36,18 @@ describe('ChatHistorySummaryWindow', () => {
   it('renders empty container when no items are provided', () => {
     render(<ChatHistorySummaryWindow items={[]} />);
     expect(screen.queryAllByTestId('chat-history-summary')).toHaveLength(0);
+  });
+
+  it('calls onItemClick when an item is clicked', () => {
+    const handleClick = jest.fn();
+    render(<ChatHistorySummaryWindow items={makeItems(2)} onItemClick={handleClick} />);
+    const items = screen.getAllByTestId('chat-history-summary');
+    fireEvent.click(items[1]);
+    expect(handleClick).toHaveBeenCalledTimes(1);
+    expect(handleClick).toHaveBeenCalledWith(
+      expect.objectContaining({ date: expect.any(String), summary: 'Summary 2' }),
+      1
+    );
   });
 });
 

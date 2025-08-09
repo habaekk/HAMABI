@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import ChatHistorySummary from '@/components/ui/ChatHistorySummary';
 
 describe('ChatHistorySummary', () => {
@@ -14,6 +14,18 @@ describe('ChatHistorySummary', () => {
     render(<ChatHistorySummary date="2025-02-02" summary="Five words summary" />);
     expect(screen.getByTestId('upper-area')).toBeInTheDocument();
     expect(screen.getByTestId('lower-area')).toBeInTheDocument();
+  });
+
+  it('is interactive and keyboard accessible when onClick provided', () => {
+    const handleClick = jest.fn();
+    render(<ChatHistorySummary date="2025-02-02" summary="Clickable" onClick={handleClick} />);
+    const card = screen.getByTestId('chat-history-summary');
+    expect(card).toHaveAttribute('role', 'button');
+    expect(card).toHaveAttribute('tabIndex', '0');
+    fireEvent.keyDown(card, { key: 'Enter' });
+    fireEvent.keyDown(card, { key: ' ' });
+    fireEvent.click(card);
+    expect(handleClick).toHaveBeenCalledTimes(3);
   });
 });
 

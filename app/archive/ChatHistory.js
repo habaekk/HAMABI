@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './ChatHistory.module.css';
 import { ChatWindow } from '@/components/chat/ChatWindow';
+import ChatHistorySummaryWindow from '@/components/ui/ChatHistorySummaryWindow';
 
 // 대화 기록 예제 데이터
 const chatHistoryData = [
@@ -52,6 +53,7 @@ const getMessagesByDate = (date) => {
 export default function ChatHistory() {
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
+  const items = Object.entries(summaryData).map(([date, summary]) => ({ date, summary }));
 
   // 날짜 클릭 시 모달 열기
   const handleDateClick = (date) => {
@@ -68,12 +70,10 @@ export default function ChatHistory() {
   return (
     <div className={styles.chatHistoryContainer}>
       {/* 요약 뷰 */}
-      {Object.entries(summaryData).map(([date, summary]) => (
-        <div key={date} className={styles.dateSummary} onClick={() => handleDateClick(date)}>
-          <div className={styles.date}>{date}</div>
-          <div className={styles.summary}>{summary}</div>
-        </div>
-      ))}
+      <ChatHistorySummaryWindow
+        items={items}
+        onItemClick={(item) => handleDateClick(item.date)}
+      />
 
       {/* 버블팝 모달 */}
       {showModal && (

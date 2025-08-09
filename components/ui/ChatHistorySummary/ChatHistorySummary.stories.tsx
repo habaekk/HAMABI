@@ -8,6 +8,7 @@ const meta: Meta<typeof ChatHistorySummary> = {
   argTypes: {
     date: { control: 'text' },
     summary: { control: 'text' },
+    onClick: { action: 'clicked' },
   },
 };
 
@@ -25,6 +26,14 @@ export const LongSummary: Story = {
   args: {
     date: '2025-02-02',
     summary: 'This is a much longer summary that should be truncated with an ellipsis',
+  },
+};
+
+export const Clickable: Story = {
+  args: {
+    date: '2025-02-02',
+    summary: 'Clickable summary example',
+    onClick: () => {},
   },
 };
 
