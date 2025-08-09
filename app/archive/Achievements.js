@@ -1,29 +1,20 @@
 'use client';
 
-import styles from './Achievements.module.css';
+import AchievementWindow from '@/components/ui/AchievementWindow';
 
 // 업적 예제 데이터
 const achievementsData = [
-  { id: 1, title: '하마비 첫 만남', description: '하마비를 처음 만난 날!', icon: '🌟' },
-  { id: 2, title: '하마비와 10번의 대화', description: '하마비와 10번의 대화를 나눔', icon: '💬' },
-  { id: 3, title: '하마비의 비밀 발견', description: '하마비의 숨겨진 메시지를 발견함', icon: '🔍' },
-  { id: 4, title: '하루를 끝까지 함께', description: '하루 끝까지 하마비와 함께', icon: '🕰️' },
-  { id: 5, title: '하마비의 친구', description: '하마비와 50번의 대화를 나눔', icon: '🤝' },
-  { id: 6, title: '하마비와 100번의 웃음', description: '하마비와 함께 100번 웃음', icon: '😂' },
-  { id: 7, title: '별과의 대화', description: '하마비와 우주 이야기를 나눔', icon: '🌌' },
-  { id: 8, title: '하마비의 선물', description: '하마비로부터 깜짝 메시지를 받음', icon: '🎁' },
+  { id: 1, title: 'First Encounter with Hamabi', description: 'The day you first met Hamabi!', icon: '🌟' },
+  { id: 2, title: '10 Conversations with Hamabi', description: 'Had 10 conversations with Hamabi', icon: '💬' },
+  { id: 3, title: "Discovered Hamabi's Secret", description: "Found Hamabi's hidden message", icon: '🔍' },
+  { id: 4, title: 'Together Until the End of the Day', description: 'Stayed with Hamabi until the end of the day', icon: '🕰️' },
+  { id: 5, title: "Hamabi's Friend", description: 'Had 50 conversations with Hamabi', icon: '🤝' },
+  { id: 6, title: '100 Laughs with Hamabi', description: 'Laughed 100 times with Hamabi', icon: '😂' },
+  { id: 7, title: 'Conversation with the Stars', description: 'Talked about the universe with Hamabi', icon: '🌌' },
+  { id: 8, title: 'Gift from Hamabi', description: 'Received a surprise message from Hamabi', icon: '🎁' },
 ];
 
 export default function Achievements() {
-  return (
-    <div className={styles.achievementsGrid}>
-      {achievementsData.map((achievement) => (
-        <div key={achievement.id} className={styles.achievementCard}>
-          <div className={styles.achievementIcon}>{achievement.icon}</div>
-          <div className={styles.achievementTitle}>{achievement.title}</div>
-          <div className={styles.achievementDescription}>{achievement.description}</div>
-        </div>
-      ))}
-    </div>
-  );
+  const items = achievementsData.map(({ title, description }) => ({ title, description }));
+  return <AchievementWindow items={items} />;
 }

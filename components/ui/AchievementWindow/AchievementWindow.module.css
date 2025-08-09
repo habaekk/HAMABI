@@ -1,9 +1,9 @@
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 10rem); /* 2 columns, each matching Achievement width (10rem) */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns that expand to fill width */
+  width: 100%; /* make grid span full container width */
   gap: 1rem; /* space between cards */
   align-content: start; /* pack items from the top */
-  justify-content: center; /* center-align items horizontally */
   overflow-y: auto; /* scroll when overflow */
   padding: 0.5rem; /* breathing room */
 }
