@@ -38,6 +38,8 @@ export const Default: Story = {
     args: {
         value: '',
         placeholder: 'Type here...',
+    onChange: () => {},
+    onKeyDown: () => {},
     },
     render: ControlledRender,
 };
@@ -46,6 +48,8 @@ export const Prefilled: Story = {
     args: {
         value: 'Hello there!',
         placeholder: 'Type here...',
+    onChange: () => {},
+    onKeyDown: () => {},
     },
     render: ControlledRender,
 };
