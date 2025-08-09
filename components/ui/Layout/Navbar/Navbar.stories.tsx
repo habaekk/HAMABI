@@ -1,12 +1,12 @@
 // components/Navbar.stories.tsx
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { Navbar } from './Navbar';
-import ArchiveIcon from '../Icons/ArchiveIcon';
-import UserIcon from '../Icons/UserIcon';
-import BackArrowIcon from '../Icons/BackArrowIcon';
+import { Navbar } from './index';
+import ArchiveIcon from '@/components/ui/Icon/ArchiveIcon';
+import UserIcon from '@/components/ui/Icon/UserIcon';
+import BackArrowIcon from '@/components/ui/Icon/BackArrowIcon';
 
 const meta: Meta<typeof Navbar> = {
-  title: 'components/layout/Navbar',
+  title: 'components/ui/Layout/Navbar',
   component: Navbar,
   tags: ['autodocs'], // Docs 탭 자동 생성
   argTypes: {

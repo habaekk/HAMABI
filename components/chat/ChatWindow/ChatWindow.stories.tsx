@@ -1,6 +1,6 @@
 // ChatWindow.stories.tsx
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { ChatWindow } from './ChatWindow';
+import { ChatWindow } from './index';
 
 const meta = {
   title: 'Chat/ChatWindow',

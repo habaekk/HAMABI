@@ -4,8 +4,8 @@ import { useState } from 'react';
 import styles from './ArchivePage.module.css';
 import Achievements from './Achievements.js';
 import ChatHistory from './ChatHistory.js';
-import { Navbar } from '../../components/layout/Navbar';
-import { BackButton } from '../../components/Buttons/BackButton';
+import { Navbar } from '@/components/ui/Layout/Navbar';
+import { BackButton } from '@/components/ui/Button/BackButton';
 
 export default function ArchivePage() {
     const [activeTab, setActiveTab] = useState('chatHistory'); // 기본 탭: 대화기록

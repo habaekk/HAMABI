@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ChatMessage.module.css';
-import { ChatBox } from './ChatBox';
+import { ChatBox } from '../ChatBox';
 
 type Props = {
     text: string;

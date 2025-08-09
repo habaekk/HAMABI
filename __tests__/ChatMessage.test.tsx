@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { ChatMessage } from '../components/ChatMessage';
+import { ChatMessage } from '@/components/chat/ChatMessage';
 
 const DummyIcon = () => <div data-testid="icon" />;
 
