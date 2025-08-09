@@ -3,6 +3,8 @@
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   height: 3rem; /* requested height */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Divider between tabs */

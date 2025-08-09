@@ -5,13 +5,14 @@ import styles from './ArchivePage.module.css';
 import Achievements from './Achievements.js';
 import ChatHistory from './ChatHistory.js';
 import { Navbar } from '@/components/ui/Layout/Navbar';
+import TabBar from '@/components/ui/Navigation/TabBar';
 import { BackButton } from '@/components/ui/Button/BackButton';
 
 export default function ArchivePage() {
     const [activeTab, setActiveTab] = useState('chatHistory'); // 기본 탭: 대화기록
 
     return (
-        <div className={styles.archivePage}>
+        <div className={styles.container}>
             {/* 네비게이션 바 */}
             <Navbar
                 title="Archive"
@@ -27,20 +28,16 @@ export default function ArchivePage() {
                 )}
             </div>
 
-            {/* 하단 탭 네비게이션 */}
+            {/* 하단 탭 네비게이션 대체: TabBar */}
             <div className={styles.tabBar}>
-                <button
-                    className={activeTab === 'chatHistory' ? styles.active : ''}
-                    onClick={() => setActiveTab('chatHistory')}
-                >
-                    대화기록
-                </button>
-                <button
-                    className={activeTab === 'achievements' ? styles.active : ''}
-                    onClick={() => setActiveTab('achievements')}
-                >
-                    업적
-                </button>
+                <TabBar
+                    items={[
+                        { key: 'chatHistory', label: 'Chat History' },
+                        { key: 'achievements', label: 'Achievements' },
+                    ]}
+                    activeKey={activeTab}
+                    onChange={setActiveTab}
+                />
             </div>
         </div>
     );
