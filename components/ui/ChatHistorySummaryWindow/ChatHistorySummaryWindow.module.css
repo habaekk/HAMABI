@@ -4,6 +4,7 @@
   width: 100%;
   gap: 1rem; /* space between summaries */
   align-content: start; /* pack items from the top */
+  align-items: center;
   overflow-y: auto; /* scroll when overflow */
   padding: 0.5rem; /* breathing room */
 }
