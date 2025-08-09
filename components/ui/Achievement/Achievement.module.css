@@ -1,6 +1,6 @@
 .container {
-  width: 10rem; /* 160px -> 10rem (assuming 16px base) */
-  height: 7.5rem; /* 120px -> 7.5rem */
+  min-width: 10rem; /* 160px -> 10rem (assuming 16px base) */
+  aspect-ratio: 4 / 3; /* maintain 4:3 ratio */
   border-radius: 0.625rem; /* 10px -> 0.625rem */
   border: 1px solid #000000; /* black border */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -11,13 +11,12 @@
 }
 
 .graphicArea {
-  height: 3.75rem; /* 60px -> 3.75rem */
   background-color: #9DD0FF;
-  flex: 0 0 3.75rem;
+  flex: 1 1 50%;
 }
 
 .infoArea {
-  height: 3.75rem; /* 60px -> 3.75rem */
+  flex: 1 1 50%;
   padding: 0.5rem 0.625rem; /* comfortable spacing */
   background-color: #ffffff; /* white */
   color: #000000;
