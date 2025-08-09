@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import styles from './UserPage.module.css';
-import { BackButton } from '../../components/Buttons/BackButton';
-import { Navbar } from '../../components/layout/Navbar';
+import { BackButton } from '@/components/ui/Button/BackButton';
+import { Navbar } from '@/components/ui/Layout/Navbar';
 
 export default function UserPage() {
   const [chatBubbleStyle, setChatBubbleStyle] = useState('rounded');
@@ -21,7 +22,7 @@ export default function UserPage() {
 
       {/* 프로필 섹션 */}
       <div className={styles.profileSection}>
-        <img src="/default-avatar.png" alt="프로필 이미지" className={styles.profileImg} />
+        <Image src="/default-avatar.png" alt="프로필 이미지" width={80} height={80} className={styles.profileImg} />
         <div className={styles.profileText}>
           <span className={styles.nickname}>User</span>
           <span className={styles.accountName}>user@example.com</span>

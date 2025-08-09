@@ -1,0 +1,71 @@
+.container {
+    aspect-ratio: 22.5 / 5;
+    width: 100%;
+    background-color: #ffffff;
+    /* white */
+    border: 1px solid #000000;
+    /* black border */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.upper {
+    position: relative;
+    height: 3rem;
+    /* 48px -> 3rem */
+    display: flex;
+    align-items: center;
+    /* vertical center */
+    justify-content: center;
+    /* horizontal center */
+}
+
+.date {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* Decorative lines at vertical middle of upper area */
+.upper::before,
+.upper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5rem;
+    /* 80px -> 5rem */
+    height: 1px;
+    background-color: #000000;
+}
+
+.upper::before {
+    left: 0;
+    /* starts from left edge */
+}
+
+.upper::after {
+    right: 0;
+    /* starts from right edge */
+}
+
+.lower {
+    height: 2rem;
+    /* 32px -> 2rem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary {
+    font-size: 1rem;
+    /* 16px -> 1rem */
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 1rem);
+}
