@@ -13,13 +13,14 @@ const Achievement: React.FC<AchievementProps> = ({ title, description, className
       className={`${styles.container} ${className ?? ""}`.trim()}
       role="group"
       aria-label={`Achievement: ${title}`}
+      data-testid="achievement"
     >
-      <div className={styles.graphicArea} />
-      <div className={styles.infoArea}>
-        <div className={styles.title} title={title}>
+      <div className={styles.graphicArea} data-testid="graphic-area" />
+      <div className={styles.infoArea} data-testid="info-area">
+        <div className={styles.title} title={title} data-testid="achievement-title">
           {title}
         </div>
-        <div className={styles.description}>{description}</div>
+        <div className={styles.description} data-testid="achievement-description">{description}</div>
       </div>
     </div>
   );
