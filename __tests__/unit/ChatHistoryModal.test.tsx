@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ChatHistoryModal from '@/components/ui/ChatHistoryModal';
+import { Message } from '@/types/Message';
 
 jest.mock('@/components/chat/ChatWindow', () => ({
   __esModule: true,
@@ -9,7 +10,7 @@ jest.mock('@/components/chat/ChatWindow', () => ({
   ),
 }));
 
-const messages = Array.from({ length: 5 }).map((_, i) => ({
+const messages: Message[] = Array.from({ length: 5 }).map((_, i) => ({
   sender: i % 2 === 0 ? 'robot' : 'user',
   content: `Message ${i + 1}`,
 }));

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import ChatHistoryModal from './index';
+import { Message } from '@/types/Message';
 
-const messages = Array.from({ length: 12 }).map((_, i) => ({
+const messages: Message[] = Array.from({ length: 12 }).map((_, i) => ({
   sender: i % 2 === 0 ? 'robot' : 'user',
   content: `Message ${i + 1}`,
 }));
