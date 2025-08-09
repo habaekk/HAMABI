@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.content {
+.dialog {
   background-color: #fff;
   border-radius: 1.2rem;
   width: 80%;
@@ -31,6 +31,12 @@
   padding: 1rem 1.2rem;
   border-bottom: 1px solid #ccc;
   z-index: 1;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 .title {

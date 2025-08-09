@@ -30,14 +30,16 @@ const ChatHistoryModal: React.FC<ChatHistoryModalProps> = ({ isOpen, title, mess
       aria-label={title ?? 'Chat history'}
       data-testid="chat-history-modal"
     >
-      <div className={styles.content} onClick={stopPropagation}>
-        <div className={styles.header} data-testid="modal-header">
+      <div className={styles.dialog} onClick={stopPropagation}>
+        <header className={styles.header} data-testid="modal-header">
           <h3 className={styles.title} data-testid="modal-title">{title}</h3>
           <button className={styles.closeButton} onClick={onClose} aria-label="Close modal">
             ✖️
           </button>
+        </header>
+        <div className={styles.body}>
+          <ChatWindow messages={messages} />
         </div>
-        <ChatWindow messages={messages} />
       </div>
     </div>
   );
