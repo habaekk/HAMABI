@@ -9,6 +9,7 @@ import { processUserMessage, summarizeChat } from '@/app/LLM/LLMService';
 import { Navbar } from '@/components/ui/Layout/Navbar';
 import { NavIconButton } from '@/components/ui/Button/NavIconButton';
 import { ChatWindow } from '@/components/chat/ChatWindow';
+import { ChatInputBar } from '@/components/chat/ChatInputBar';
 import { Message } from '@/types/Message';
 
 export default function ChatPage() {
@@ -133,13 +134,7 @@ export default function ChatPage() {
 
 
 
-    // 엔터 키 입력 시 메시지 전송
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault(); // 기본 동작 방지 (새 줄 입력 X)
-            handleSendMessage();
-        }
-    };
+    // 입력은 ChatInputBar 내부에서 Enter 처리
     // 지금은 요약 버튼임
     const handleDrawTarot = async () => {
         // // // 1단계: 하마비가 메시지 먼저 보여줌
@@ -211,16 +206,11 @@ export default function ChatPage() {
                 요약
             </button>
 
-            <div className={styles.chatInputBar}>
-                <input
-                    type="text"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    placeholder="Type your message..."
-                />
-                <button onClick={handleSendMessage}>Send</button>
-            </div>
+            <ChatInputBar
+                value={message}
+                onChange={setMessage}
+                onSend={handleSendMessage}
+            />
         </div>
 
     );

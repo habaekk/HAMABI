@@ -1,0 +1,22 @@
+.button {
+  min-width: 1.5rem;  /* at least 1.5rem */
+  height: 1rem;       /* 1rem height */
+  padding: 0.5rem 0.75rem; /* touch area while keeping visual size */
+  background-color: #FF7F42; /* FF7F42 */
+  color: #FFFFFF; /* white text */
+  border: none;
+  border-radius: 1rem; /* 16px -> 1rem */
+  font-size: 0.875rem;
+  line-height: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
