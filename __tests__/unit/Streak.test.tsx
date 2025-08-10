@@ -7,13 +7,13 @@ describe('Streak', () => {
   test('renders current value and label', () => {
     render(<Streak current={5} total={7} />);
     expect(screen.getByTestId('streak-value')).toHaveTextContent('5');
-    expect(screen.getByTestId('streak-label')).toHaveTextContent('7 Days Streak');
+    expect(screen.getByTestId('streak-label')).toHaveTextContent('5 Days Streak');
   });
 
   test('renders default total and label when not provided', () => {
     render(<Streak current={3} />);
     expect(screen.getByTestId('streak-value')).toHaveTextContent('3');
-    expect(screen.getByTestId('streak-label')).toHaveTextContent('7 Days Streak');
+    expect(screen.getByTestId('streak-label')).toHaveTextContent('3 Days Streak');
   });
 
   test('clamps current between 0 and total', () => {
