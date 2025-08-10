@@ -10,7 +10,7 @@ const UserInfo: React.FC<UserInfoProps> = ({
 }) => {
   return (
     <div
-      className={`w-full max-w-md bg-white rounded-lg overflow-hidden shadow-lg ${className}`}
+      className={`w-full bg-white rounded-lg overflow-hidden shadow-lg ${className}`}
       role="region"
       aria-label="User information"
     >
