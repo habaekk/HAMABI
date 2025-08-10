@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { Suspense, useMemo } from 'react';
 import styles from './ChatHistoryDetail.module.css';
 import { Navbar } from '@/components/ui/Layout/Navbar';
 import { BackButton } from '@/components/ui/Button/BackButton';
@@ -37,7 +37,7 @@ const chatHistoryData: Array<{
   { id: 18, date: '2024-02-10', time: '09:55', content: 'Hamabi exists in today’s sunlight. Tomorrow, a new Hamabi will come to find you. 🌌', sender: 'robot' },
 ];
 
-export default function ChatHistoryDetailPage() {
+function ChatHistoryDetailInner() {
   const searchParams = useSearchParams();
   const date = searchParams.get('date') ?? '';
 
@@ -57,6 +57,14 @@ export default function ChatHistoryDetailPage() {
         <ChatWindow messages={messages} />
       </div>
     </div>
+  );
+}
+
+export default function ChatHistoryDetailPage() {
+  return (
+    <Suspense fallback={<div className={styles.page}><Navbar title="Loading..." left={<BackButton ariaLabel="go back" />} /></div>}>
+      <ChatHistoryDetailInner />
+    </Suspense>
   );
 }
 
