@@ -14,7 +14,7 @@ export const ChatInputField = ({ value, onChange, placeholder, onKeyDown }: Chat
 
   return (
     <input
-      className="w-full min-w-[19.5rem] h-8 px-3.5 py-2.5 border-none rounded-2xl bg-[#D9D9D9] text-black text-xs box-border sm:min-w-0"
+      className="w-full min-w-[19.5rem] h-8 px-3.5 py-2.5 border border-gray-300 rounded-2xl bg-white text-black text-xs box-border sm:min-w-0 placeholder:text-[#D9D9D9]"
       type="text"
       value={value}
       onChange={handleChange}
