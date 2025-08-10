@@ -10,4 +10,13 @@
   min-height: 0;
 }
 
+.noData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #666;
+  font-size: 1rem;
+}
+
 
