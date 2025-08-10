@@ -19,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`${orbitron.className} bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100`}>
+      <body className={`${orbitron.className} bg-white text-neutral-900`}>
         <div className="min-h-screen">
           <main>{children}</main>
         </div>

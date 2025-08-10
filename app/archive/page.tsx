@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Achievements from './Achievements.js';
-import ChatHistory from './ChatHistory.js';
+import Achievements from './Achievements';
+import ChatHistory from './ChatHistory';
 import { Navbar } from '@/components/ui/Layout/Navbar';
 import TabBar from '@/components/ui/Navigation/TabBar';
 import { BackButton } from '@/components/ui/Button/BackButton';
