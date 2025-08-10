@@ -11,7 +11,7 @@ export default function ArchivePage() {
     const [activeTab, setActiveTab] = useState('chatHistory'); // 기본 탭: 대화기록
 
   return (
-        <div className="flex min-h-dvh w-full flex-col items-center bg-gray-100 text-black">
+        <div className="flex h-dvh w-full flex-col items-center bg-gray-100 text-black overflow-hidden">
             {/* 네비게이션 바 */}
             <Navbar
                 title="Archive"
@@ -19,7 +19,7 @@ export default function ArchivePage() {
             />
 
             {/* 탭 내용 */}
-            <div className="box-border mb-12 w-full flex-grow overflow-y-auto p-5">
+            <div className="box-border mb-12 w-full flex-1 overflow-y-auto p-5">
                 {activeTab === 'chatHistory' ? (
                     <ChatHistory />
                 ) : (

@@ -20,7 +20,7 @@ export default function ChatHistory() {
   };
 
   return (
-    <div className="flex h-full flex-col overflow-y-auto p-3">
+    <div className="flex h-full flex-col p-3">
       {/* 요약 뷰 */}
       <ChatHistorySummaryWindow
         items={items}
