@@ -1,5 +1,4 @@
 import React, { KeyboardEvent } from 'react';
-import styles from './ChatInputBar.module.css';
 import { ChatInputField } from '@/components/chat/ChatInputField';
 import { SendButton } from '@/components/ui/Button/SendButton';
 
@@ -18,8 +17,8 @@ export const ChatInputBar = ({ value, onChange, onSend }: ChatInputBarProps) => 
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.inputContainer}>
+    <div className="w-full h-12 flex items-center gap-2 px-4 bg-white border-t border-gray-300 box-border">
+      <div className="flex-1 flex">
         <ChatInputField
           value={value}
           onChange={onChange}
@@ -27,7 +26,7 @@ export const ChatInputBar = ({ value, onChange, onSend }: ChatInputBarProps) => 
           onKeyDown={handleKeyDown}
         />
       </div>
-      <div className={styles.buttonContainer}>
+      <div className="flex-shrink-0 flex">
         <SendButton onClick={onSend} />
       </div>
     </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './ChatMessage.module.css';
 import { ChatBox } from '../ChatBox';
 
 type Props = {
@@ -10,18 +9,18 @@ type Props = {
 
 export const ChatMessage = ({ text, isUser, Icon }: Props) => {
     return (
-        <div className={styles.container} data-testid="chat-message">
+        <div className="flex gap-2" data-testid="chat-message">
             {!isUser && (
-                <div className={styles.iconContainer}>
+                <div className="flex items-end">
                     {Icon}
                 </div>
             )}
 
             <div
-                className={`${styles.chatBoxContainer} 
-                ${isUser ?
-                        styles.userChatBoxContainer :
-                        styles.robotChatBoxContainer
+                className={`max-w-80 ${
+                    isUser
+                        ? 'ml-auto'
+                        : 'flex items-start pb-4'
                     }`}
             >
                 <ChatBox text={text} isUser={isUser} />

@@ -1,6 +1,5 @@
 'use client';
 
-import styles from './ChatPage.module.css';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import UserIcon from '@/components/ui/Icon/UserIcon';
@@ -186,7 +185,7 @@ export default function ChatPage() {
 
 
     return (
-        <div className={styles.chatPage}>
+        <div className="flex flex-col h-screen">
             {/* 네비게이션 바 */}
             <Navbar
                 title={title}
@@ -197,12 +196,18 @@ export default function ChatPage() {
             <ChatWindow messages={ messages } />
             
             {showScrollButton && (
-                <button className={styles.scrollToBottom} onClick={scrollToBottom}>
+                <button 
+                    className="fixed bottom-20 left-1/2 transform -translate-x-1/2 bg-blue-500/30 border-none p-2 rounded-full cursor-pointer transition-all duration-300 ease-in-out shadow-lg flex justify-center items-center w-10 h-10 hover:bg-blue-600/70 hover:scale-105" 
+                    onClick={scrollToBottom}
+                >
                     <Image src="/arrow-down.svg" alt="Scroll Down" width={24} height={24} />
                 </button>
             )}
 
-            <button className={styles.tarotButton} onClick={handleDrawTarot}>
+            <button 
+                className="fixed bottom-24 right-6 px-4 py-3 bg-[#fff2c7] text-[#222] border-2 border-[#f4c542] rounded-[1.4rem] font-bold shadow-lg z-50 transition-transform duration-200 ease-in-out hover:-translate-y-1" 
+                onClick={handleDrawTarot}
+            >
                 요약
             </button>
 
