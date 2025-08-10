@@ -1,6 +1,5 @@
 import React from "react";
 import Achievement from "@/components/ui/Achievement";
-import styles from "./AchievementWindow.module.css";
 
 export type AchievementItem = {
   title: string;
@@ -18,7 +17,7 @@ const AchievementWindow: React.FC<AchievementWindowProps> = ({
 }) => {
   return (
     <div
-      className={`${styles.container}`.trim()}
+      className="grid w-full grid-cols-2 gap-4 content-start overflow-y-auto p-2"
       role="region"
       aria-label="Achievements"
       data-testid="achievement-window"

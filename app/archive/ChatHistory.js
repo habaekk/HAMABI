@@ -1,6 +1,5 @@
 'use client';
 
-import styles from './ChatHistory.module.css';
 import ChatHistorySummaryWindow from '@/components/ui/ChatHistorySummaryWindow';
 import { useRouter } from 'next/navigation';
 import { chatHistoryData } from '@/app/data';
@@ -21,7 +20,7 @@ export default function ChatHistory() {
   };
 
   return (
-    <div className={styles.chatHistoryContainer}>
+    <div className="flex h-full flex-col overflow-y-auto p-3">
       {/* 요약 뷰 */}
       <ChatHistorySummaryWindow
         items={items}

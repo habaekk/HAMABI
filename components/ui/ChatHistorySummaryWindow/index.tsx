@@ -1,6 +1,5 @@
 import React from "react";
 import ChatHistorySummary from "@/components/ui/ChatHistorySummary";
-import styles from "./ChatHistorySummaryWindow.module.css";
 
 export type ChatHistorySummaryItem = {
   date: string;
@@ -20,7 +19,7 @@ const ChatHistorySummaryWindow: React.FC<ChatHistorySummaryWindowProps> = ({
 }) => {
   return (
     <div
-      className={`${styles.container}`.trim()}
+      className="flex w-full flex-col items-center gap-4 overflow-y-auto p-2"
       role="region"
       aria-label="Chat history summaries"
       data-testid="chat-history-summary-window"
