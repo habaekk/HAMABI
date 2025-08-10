@@ -46,7 +46,7 @@ const Condition: React.FC<ConditionProps> = ({
   const ariaLabel = `${title} graph with ${labels.length} attributes`;
 
   // SVG metrics
-  const width = 560; // 5 columns * 112px each for nice spacing
+  const width = 560; // base design width
   const height = 220;
   const paddingLeft = 44; // room for y-axis labels
   const paddingRight = 12;
@@ -89,13 +89,13 @@ const Condition: React.FC<ConditionProps> = ({
         )}
       </div>
 
-      <div className="w-full overflow-x-auto">
+      <div className="w-full">
         <svg
-          width={width}
-          height={height}
+          viewBox={`0 0 ${width} ${height}`}
           role="img"
           aria-label={ariaLabel}
-          className="mx-auto"
+          className="mx-auto w-full h-auto"
+          preserveAspectRatio="xMidYMid meet"
         >
           {/* Grid background */}
           {gridLines.map((ratio, idx) => {

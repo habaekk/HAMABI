@@ -62,7 +62,7 @@ export default function UserPage() {
   const settingsSections: SettingsSection[] = useMemo(
     () => [
       {
-        title: 'General',
+        title: 'Settings',
         rows: [
           {
             label: 'Notifications',
@@ -115,8 +115,8 @@ export default function UserPage() {
     <div className="min-h-dvh w-full bg-gray-50">
       <Navbar title="User" left={<BackButton ariaLabel="go back" />} />
 
-      <main className="mx-auto flex w-full max-w-md flex-col gap-4 p-4">
-        <UserInfo user={user} detailCards={detailCards} />
+      <main className="mx-auto flex w-full max-w-none flex-col gap-4 p-4">
+        <UserInfo user={user} detailCards={detailCards} className="max-w-none" />
 
         <Streak current={userStats?.longestStreak ?? 0} total={7} label="Days Streak" />
 
