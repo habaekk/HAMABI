@@ -17,9 +17,11 @@ const TabBar: React.FC<TabBarProps> = ({ items, activeKey, onChange }) => {
       {items.map((item, index) => {
         const isActive = item.key === activeKey;
         const className = [
-          'relative appearance-none border-0 bg-white text-black flex items-center justify-center text-xl cursor-pointer',
+          'relative appearance-none border-0 flex items-center justify-center text-xl cursor-pointer transition-colors duration-200',
           index > 0 ? 'border-l border-black' : '',
-          isActive ? 'bg-[#FFA982] shadow-inner' : '',
+          isActive 
+            ? 'bg-[#FFA982] text-black font-semibold shadow-inner' 
+            : 'bg-white text-black hover:bg-gray-50',
         ]
           .filter(Boolean)
           .join(' ');
