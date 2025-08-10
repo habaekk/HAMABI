@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './TabBar.module.css';
 
 export type TabBarItem = {
   key: string;
@@ -14,14 +13,15 @@ export type TabBarProps = {
 
 const TabBar: React.FC<TabBarProps> = ({ items, activeKey, onChange }) => {
   return (
-    <div className={styles.container} role="tablist" aria-label="Tabs" data-testid="tabbar">
+    <div className="grid h-12 w-full grid-flow-col auto-cols-fr" role="tablist" aria-label="Tabs" data-testid="tabbar">
       {items.map((item, index) => {
         const isActive = item.key === activeKey;
         const className = [
-          styles.tab,
-          isActive ? styles.active : '',
-          index === 0 ? styles.first : '',
-          index === items.length - 1 ? styles.last : '',
+          'relative appearance-none border-0 flex items-center justify-center text-xl cursor-pointer transition-colors duration-200',
+          index > 0 ? 'border-l border-black' : '',
+          isActive 
+            ? 'bg-[#FFA982] text-black font-semibold shadow-inner' 
+            : 'bg-white text-black hover:bg-gray-50',
         ]
           .filter(Boolean)
           .join(' ');

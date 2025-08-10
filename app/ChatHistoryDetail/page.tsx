@@ -1,7 +1,6 @@
 'use client';
 
 import React, { Suspense, useMemo } from 'react';
-import styles from './ChatHistoryDetail.module.css';
 import { Navbar } from '@/components/ui/Layout/Navbar';
 import { BackButton } from '@/components/ui/Button/BackButton';
 import { ChatWindow } from '@/components/chat/ChatWindow';
@@ -29,13 +28,13 @@ function ChatHistoryDetailInner() {
   const title = chatHistory?.title || date || 'Chat History';
 
   return (
-    <div className={styles.page}>
+    <div className="flex flex-col h-screen bg-white">
       <Navbar title={title} left={<BackButton ariaLabel="go back" />} />
-      <div className={styles.content}>
+      <div className="flex-1 min-h-0">
         {chatHistory ? (
           <ChatWindow messages={messages} />
         ) : (
-          <div className={styles.noData}>
+          <div className="flex justify-center items-center h-full text-gray-500 text-base">
             <p>No chat history found for this date.</p>
           </div>
         )}
@@ -46,7 +45,7 @@ function ChatHistoryDetailInner() {
 
 export default function ChatHistoryDetailPage() {
   return (
-    <Suspense fallback={<div className={styles.page}><Navbar title="Loading..." left={<BackButton ariaLabel="go back" />} /></div>}>
+    <Suspense fallback={<div className="flex flex-col h-screen bg-white"><Navbar title="Loading..." left={<BackButton ariaLabel="go back" />} /></div>}>
       <ChatHistoryDetailInner />
     </Suspense>
   );
