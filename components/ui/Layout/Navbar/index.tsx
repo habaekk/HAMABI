@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Navbar.module.css';
 
 type MobileNavbarProps = {
   title: string;
@@ -9,13 +8,18 @@ type MobileNavbarProps = {
 
 export const Navbar = ({ title, left, right }: MobileNavbarProps) => {
   return (
-    <header className={styles.navbar}>
-      <div className={styles.navIcon}>
-        {left ?? <div className={styles.iconPlaceholder} />}
+    <header
+      aria-label="Top navigation"
+      className="w-full h-8 flex items-center justify-between px-4 bg-white border-b border-gray-200 box-border"
+    >
+      <div className="w-6 h-6 flex items-center justify-center">
+        {left ?? <div className="w-6 h-6" />}
       </div>
-      <div className={styles.navTitle}>{title}</div>
-      <div className={styles.navIcon}>
-        {right ?? <div className={styles.iconPlaceholder} />}
+      <div className="flex-1 text-center text-xl font-medium truncate" title={title}>
+        {title}
+      </div>
+      <div className="w-6 h-6 flex items-center justify-center">
+        {right ?? <div className="w-6 h-6" />}
       </div>
     </header>
   );
