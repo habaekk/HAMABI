@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import React from 'react';
 import Condition from './index';
 
 const meta: Meta<typeof Condition> = {
